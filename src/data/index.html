@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>City Graph Visualization</title>
+  <style>
+    #mapid {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+
+  <!-- If you're using a module bundler like webpack, you might use an import statement instead -->
+  <script src="./graph.js"></script> <!-- Your graph data -->
+  <script src="./routesAndWeight.js"></script> <!-- Your graph data -->
+  <script src="./node_modules/graphology/dist/graphology.umd.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="./node_modules/leaflet/dist/leaflet-src.js"></script>
+
+</head>
+
+<body>
+  <div id="mapid"></div>
+  <script>
+    const findWeight = (from, to) => {
+      const idFind = [from, to].sort().join("_");
+      return window.routesAndWeight.find(({ id }) => id === idFind).weight
+    }
+    function getColorByWeight(weight) {
+      switch (parseInt(weight)) {
+        case 1: return '#44AA99';  // Turquoise - Easiest to pass
+        case 2: return '#88CCEE';
+        case 3: return '#117733';
+        case 4: return '#999933';
+        case 5: return '#DDCC77';
+        case 6: return '#CC6677';
+        case 7: return '#882255';  // Dark red - Hardest to pass
+        default: return '#AA4499'; // Default color for weights outside 1-7 range
+      }
+    }
+  </script>
+  <script>
+    const { UndirectedGraph } = graphology;
+    const getGraph = (data) => {
+      const graph = new UndirectedGraph();
+
+      data.forEach(({ id, name, latitude, longitude, connections }) => {
+        // Add node
+        if (!graph.hasNode(id)) {
+          graph.addNode(id, {
+            latitude, longitude,
+
+            label: `${id}[${name}]`
+          });
+        }
+      });
+
+      data.forEach(({ id, name, connections }) => {
+        // Add edges
+        connections.forEach((targetId) => {
+          if (targetId) {
+            // Check if targetId is not empty
+            if (!graph.hasEdge(id, targetId)) {
+              graph.addEdge(id, targetId, {
+                weight: findWeight(id, targetId),
+              });
+            }
+          }
+        });
+      });
+      return graph
+    }
+  </script>
+  <script>
+
+    // Assuming you have a Graphology graph with latitude and longitude as node attributes...
+
+    // Initialize Leaflet map
+    var map = L.map('mapid').setView([40.68708, -0.32161], 10);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+
+    const graph = getGraph(window.data)
+    // Add nodes to the map
+    graph.forEachNode((node, attributes) => {
+
+      L.marker([attributes.latitude, attributes.longitude]).addTo(map)
+        .bindPopup(attributes.label);
+    });
+
+    // Add edges to the map
+    graph.forEachEdge((edge, attributes, source, target, sourceAttributes, targetAttributes) => {
+      var latlngs = [
+        [sourceAttributes.latitude, sourceAttributes.longitude],
+        [targetAttributes.latitude, targetAttributes.longitude]
+      ];
+      L.polyline(latlngs, {
+        weight:7,
+        color: getColorByWeight(attributes.weight)
+      })
+        .bindTooltip("Weight: " + attributes.weight, { permanent: false, direction: 'auto' })
+
+        .addTo(map);
+    });
+
+  </script>
+</body>
+
+</html>
