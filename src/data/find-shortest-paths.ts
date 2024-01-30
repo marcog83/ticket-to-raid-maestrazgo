@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { UndirectedGraph } from 'graphology';
 import { singleSource, edgePathFromNodePath } from 'graphology-shortest-path';
-import type { DataItem } from './get-data';
-import { getNameBuilder } from '../context/get-name';
+import { getName } from '../context/get-name';
 
-export const findShortestPaths = (graph: UndirectedGraph, data: DataItem[]) => {
+export const findShortestPaths = (graph: UndirectedGraph) => {
   const results = {};
   const uniquePathsSet = new Set(); // Set to track unique paths
 
@@ -36,7 +35,7 @@ export const findShortestPaths = (graph: UndirectedGraph, data: DataItem[]) => {
 
   const shortest = Object.keys(results).map((node) => {
     const paths = results[node];
-    const line = paths.map((path) => [ path.weight, ...path.path.map(getNameBuilder(data)) ]);
+    const line = paths.map((path) => [ path.weight, ...path.path.map(getName) ]);
     return line;
   }).flat().sort((a, b) => a[0] - b[0]);
 

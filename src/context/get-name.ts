@@ -1,6 +1,6 @@
-import type { DataItem } from '../data/get-data';
+import { Data } from '../data/get-data';
 
-export const getNameBuilder = (data:DataItem[]) => (id) => {
-  const name = data.find((place) => place.id === Number(id))?.name ?? id;
+export const getName = (id) => {
+  const name = Data.find((place) => place.id === Number(id))?.name ?? id;
   return name;
 };

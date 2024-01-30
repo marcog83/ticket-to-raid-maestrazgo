@@ -1,16 +1,14 @@
 import { FC, createContext, useContext, useMemo } from 'react';
-import { getData } from '../data/get-data';
+import { Data } from '../data/get-data';
 import { getGraph } from '../data/get-graph';
 
-const data = getData();
-
-const graph = getGraph(data);
+const graph = getGraph(Data);
 const GraphContext = createContext();
 
 export const useGraph = () => useContext(GraphContext);
 
 export const GraphProvider:FC = ({ children }) => {
-  const manager = useMemo(() => ({ data, graph }), [ ]);
+  const manager = useMemo(() => ({ data: Data, graph }), [ ]);
   return (
     <GraphContext.Provider value={manager}>
       {children}

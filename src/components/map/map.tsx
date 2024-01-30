@@ -1,47 +1,70 @@
-import { useEffect } from 'react';
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer, Marker, Polyline, Tooltip } from 'react-leaflet';
 import { getColorByWeight } from './get-color-by-weight';
 import styles from './map.module.css';
 import { useGraph } from '../../context/graph';
 
 export const Map = () => {
   const { graph } = useGraph();
-  useEffect(() => {
-    const map = L.map('mapid').setView([ 40.68708, -0.32161 ], 10);
 
-    // Add OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap contributors',
-    }).addTo(map);
+  return (
+    <MapContainer
+      className={styles.map}
+      center={[ 40.68708, -0.32161 ]}
+      zoom={11}
+      maxZoom={19}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      {
+        graph.mapNodes((node, attributes) => (
+          <Marker
+            key={node}
+            position={[ attributes.latitude, attributes.longitude ]}
+          >
+            <Tooltip>
+              {attributes.label}
+            </Tooltip>
+          </Marker>
+        ))
+      }
+      {
+        graph.mapEdges((
+          ___,
+          attributes,
+          _,
+          __,
+          sourceAttributes,
+          targetAttributes,
+        ) => {
+          const latlngs = [
+            [ sourceAttributes.latitude, sourceAttributes.longitude ],
+            [ targetAttributes.latitude, targetAttributes.longitude ],
+          ];
 
-    // Add nodes to the map
-    graph.forEachNode((_, attributes) => {
-      L.marker([ attributes.latitude, attributes.longitude ]).addTo(map)
-        .bindPopup(attributes.label);
-    });
+          return (
+            <Polyline
+              key={___}
+              pathOptions={{
+                weight: 7,
+                color: getColorByWeight(attributes.weight),
+              }}
+              positions={latlngs}
+            >
+              <Tooltip>
+                Pasos:
+                {' '}
+                {attributes.weight }
+              </Tooltip>
+            </Polyline>
+          );
+        })
+      }
 
-    // Add edges to the map
-    graph.forEachEdge((
-      ___,
-      attributes,
-      _,
-      __,
-      sourceAttributes,
-      targetAttributes,
-    ) => {
-      const latlngs = [
-        [ sourceAttributes.latitude, sourceAttributes.longitude ],
-        [ targetAttributes.latitude, targetAttributes.longitude ],
-      ];
-      L.polyline(latlngs, {
-        weight: 7,
-        color: getColorByWeight(attributes.weight),
-      })
-        .bindTooltip(`Weight: ${ attributes.weight }`, { permanent: false, direction: 'auto' })
-        .addTo(map);
-    });
-  }, [ graph ]);
-  return <div id="mapid" className={styles.map} />;
+    </MapContainer>
+  );
+
+  // return <div id="mapid" className={styles.map} />;
 };
