@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 import remarkGfm from 'remark-gfm';
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/ticket-to-raid-maestrazgo/',
   server: {
     proxy: {
       '/api-user-preferences': {
