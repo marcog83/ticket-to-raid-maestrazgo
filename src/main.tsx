@@ -5,7 +5,7 @@ import { App } from './components/app';
 import './reset.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/ticket-to-raid-maestrazgo">
     <App />
   </BrowserRouter>,
 );
