@@ -2,7 +2,7 @@ import { UndirectedGraph } from 'graphology';
 import routes from './routes-def.csv?raw';
 import { DataItem } from './get-data';
 
-const routesAndWeight = routes.split('\n')
+export const routesAndWeight = routes.split('\n')
   .map((line) => {
     const [ from, to,,,weight ] = line.split(',');
     return {
@@ -13,7 +13,7 @@ const routesAndWeight = routes.split('\n')
     };
   });
 
-const findWeight = (from:number, to:number) => {
+export const findWeight = (from:number, to:number) => {
   const idFind = [ from, to ].sort().join('_');
   return routesAndWeight.find(({ id }) => id === idFind)?.weight;
 };

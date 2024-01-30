@@ -1,0 +1,8 @@
+.mapView{
+    display: flex;
+}
+.mapContainer{
+    position: relative;
+    flex: 1;
+    height: 100vh;
+}
