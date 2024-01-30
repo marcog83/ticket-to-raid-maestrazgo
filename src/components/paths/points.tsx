@@ -4,8 +4,8 @@ import { findShortestPaths } from '../../data/find-shortest-paths';
 import styles from './points.module.css';
 
 export const Points = () => {
-  const { graph, data } = useGraph();
-  const [ shortestPaths ] = useState(() => findShortestPaths(graph, data));
+  const graph = useGraph();
+  const [ shortestPaths ] = useState(() => findShortestPaths(graph));
   return (
     <div className={styles.routes}>
 

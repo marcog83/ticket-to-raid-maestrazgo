@@ -5,7 +5,7 @@ import styles from './map.module.css';
 import { useGraph } from '../../context/graph';
 
 export const Map = () => {
-  const { graph } = useGraph();
+  const graph = useGraph();
 
   return (
     <MapContainer

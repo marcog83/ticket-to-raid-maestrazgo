@@ -4,12 +4,18 @@ import { singleSource, edgePathFromNodePath } from 'graphology-shortest-path';
 import { getName } from '../context/get-name';
 
 export const findShortestPaths = (graph: UndirectedGraph) => {
-  const results = {};
+  const results:Record<string, {
+    weight: number;
+    path: string[];
+  }[]> = {};
   const uniquePathsSet = new Set(); // Set to track unique paths
 
   graph.forEachNode((node) => {
     const paths = singleSource(graph, node);
-    const tmp = Object.entries(paths).reduce((acc, [ , nodePath ]) => {
+    const tmp:{
+      weight:number,
+      path: string[],
+    }[] = Object.entries(paths).reduce((acc, [ , nodePath ]) => {
       if (nodePath.length <= 1) return acc;
       const weight = edgePathFromNodePath(graph, nodePath).reduce((acc, edge) => {
         const weight: number = graph.getEdgeAttribute(edge, 'weight');
@@ -29,7 +35,10 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
           path: nodePath,
         },
       ];
-    }, []);
+    }, [] as {
+      weight:number,
+      path: string[],
+    }[]);
     results[node] = tmp;
   });
 
@@ -37,7 +46,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
     const paths = results[node];
     const line = paths.map((path) => [ path.weight, ...path.path.map(getName) ]);
     return line;
-  }).flat().sort((a, b) => a[0] - b[0]);
+  }).flat().sort((a, b) => Number(a[0]) - Number(b[0]));
 
   return shortest;
 };

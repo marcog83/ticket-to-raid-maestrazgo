@@ -52,9 +52,13 @@
 				"path": "zsh"
 			}
 		},
-		"terminal.integrated.shellArgs.linux": [
-			"-l"
-		],
+		"terminal.integrated.profiles.linux":{
+			"bash": {
+				"args": ["-i"],
+				"icon": "terminal-bash",
+				"path": "/bin/bash"
+			}
+		},
 		"typescript.format.enable": false,
 		"typescript.preferences.includePackageJsonAutoImports": "on",
 		"typescript.validate.enable": false,
