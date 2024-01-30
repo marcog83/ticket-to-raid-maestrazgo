@@ -16,8 +16,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/leaflet":"1.9.8",
     "@tanstack/react-query": "5.17.19",
     "express": "^4.18.2",
+    "graphology":"0.25.4",
+    "leaflet":"1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6.21.3"

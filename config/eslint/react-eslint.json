@@ -1,8 +1,8 @@
-module.exports={
+{
   "extends": [
     "./base-eslint",
-    require.resolve("eslint-config-airbnb-typescript"),
-    require.resolve("eslint-config-airbnb/hooks")
+    "eslint-config-airbnb-typescript",
+    "eslint-config-airbnb/hooks"
   ],
   "rules": {
     "react/jsx-props-no-spreading":"off",

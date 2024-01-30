@@ -1,0 +1,67 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+	],
+	"settings": {
+		"css.validate": false,
+		"editor.codeActionsOnSave": {
+			"source.fixAll": "explicit"
+		},
+		"eslint.format.enable": true,
+		"files.autoSave": "afterDelay",
+		"files.eol": "\n",
+		"javascript.validate.enable": false,
+		"json.validate.enable": true,
+		"less.validate": false,
+		"scss.validate": false,
+		"scss.completion.completePropertyWithSemicolon": true,
+		"scss.completion.triggerPropertyValueCompletion": true,
+		"stylelint.validate": [
+			"css",
+			"scss",
+			"less"
+		],
+		"terminal.integrated.profiles.osx": {
+			"bash": {
+				"args": [
+					"-l"
+				],
+				"icon": "terminal-bash",
+				"path": "bash"
+			},
+			"fish": {
+				"args": [
+					"-l"
+				],
+				"path": "fish"
+			},
+			"pwsh": {
+				"icon": "terminal-powershell",
+				"path": "pwsh"
+			},
+			"tmux": {
+				"icon": "terminal-tmux",
+				"path": "tmux"
+			},
+			"zsh": {
+				"args": [
+					"-l"
+				],
+				"path": "zsh"
+			}
+		},
+		"terminal.integrated.shellArgs.linux": [
+			"-l"
+		],
+		"typescript.format.enable": false,
+		"typescript.preferences.includePackageJsonAutoImports": "on",
+		"typescript.validate.enable": false,
+		"javascript.updateImportsOnFileMove.enabled": "prompt",
+		"typescript.experimental.aiQuickFix": true,
+		"javascript.suggest.autoImports": true,
+		"typescript.suggest.autoImports": true,
+		"typescript.updateImportsOnFileMove.enabled": "always"
+	}
+}

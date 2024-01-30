@@ -1,7 +1,7 @@
-module.exports={
+{
   "extends": [
-    require.resolve("eslint-config-airbnb"),
-    require.resolve("eslint-config-airbnb-typescript/base")
+    "eslint-config-airbnb",
+    "eslint-config-airbnb-typescript/base"
   ],
   "rules": {
     "@typescript-eslint/comma-dangle": "off",
