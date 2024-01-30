@@ -1,0 +1,22 @@
+.routes{
+    padding:1rem;
+}
+.route{
+    display: flex;
+}
+.routeLabel{
+    font-weight: bold;
+    width: 16px;
+    padding: 0.5rem 0;
+}
+
+.routeRow{
+   padding: 0.5rem;
+}
+.routeCity{
+    
+    &:not(:last-child):after {
+        content: "-";
+        padding: 0 0.5rem;
+    }
+}

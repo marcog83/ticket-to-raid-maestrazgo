@@ -1,16 +1,12 @@
 import { useEffect } from 'react';
 import L from 'leaflet';
-import { getData } from '../../data/get-data';
-import { getGraph } from '../../data/get-graph';
 import 'leaflet/dist/leaflet.css';
 import { getColorByWeight } from './get-color-by-weight';
 import styles from './map.module.css';
-
-const data = getData();
-
-const graph = getGraph(data);
+import { useGraph } from '../../context/graph';
 
 export const Map = () => {
+  const { graph } = useGraph();
   useEffect(() => {
     const map = L.map('mapid').setView([ 40.68708, -0.32161 ], 10);
 
@@ -46,6 +42,6 @@ export const Map = () => {
         .bindTooltip(`Weight: ${ attributes.weight }`, { permanent: false, direction: 'auto' })
         .addTo(map);
     });
-  }, []);
+  }, [ graph ]);
   return <div id="mapid" className={styles.map} />;
 };

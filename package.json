@@ -23,9 +23,11 @@
     "leaflet":"1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "6.21.3"
+    "react-router-dom": "6.21.3",
+    "graphology-shortest-path":"2.0.2"
   },
   "devDependencies": {
+    
     "@mdx-js/rollup": "3.0.0",
     "@types/jest": "29.5.11",
     "@types/react": "^18.2.43",
