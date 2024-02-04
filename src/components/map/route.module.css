@@ -1,0 +1,26 @@
+.route{
+    position:relative;
+    margin-bottom: 1rem;
+}
+
+.routeTitle{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+   
+}
+.routeTitleNumber{
+    padding: 0.5rem;
+background: green;
+border-radius: 50%;
+color:white;
+}
+
+.routeTitleLabel{
+    margin-left: 0.5rem;
+}
+
+.routeParts{
+    margin-left: 2.5rem;
+}

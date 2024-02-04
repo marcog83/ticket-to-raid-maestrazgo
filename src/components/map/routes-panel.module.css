@@ -3,3 +3,7 @@
     overflow: hidden;
     overflow: scroll;
 }
+
+.routes{
+    padding: 0.5rem;
+}
