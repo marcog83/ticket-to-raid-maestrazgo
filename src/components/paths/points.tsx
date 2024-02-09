@@ -17,9 +17,9 @@ export const Points = () => {
               <div className={styles.routeLabel}>
 
                 <span>{path[0]}</span>
-                <span> → </span>
+                <span> - </span>
                 <span>{path.at(-1)}</span>
-
+                <input type="checkbox" className={styles.checkbox} />
               </div>
             </summary>
             <div className={styles.routeRow}>

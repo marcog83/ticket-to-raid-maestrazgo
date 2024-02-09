@@ -27,6 +27,8 @@
     font-weight: bold;
     padding: 0.5rem 0;
     margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .routeRow{
@@ -42,4 +44,7 @@
 }
 .details[open] {
     background: #e7e5e5;
+}
+.checkbox{
+   
 }

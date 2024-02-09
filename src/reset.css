@@ -12,6 +12,9 @@
     all: unset;
     display: revert;
 }
+input{
+    all: revert;
+}
 
 /* Preferred box-sizing value */
 *,
