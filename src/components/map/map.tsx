@@ -49,6 +49,8 @@ export const Map = () => {
               key={___}
               pathOptions={{
                 weight: 7,
+                dashOffset: 10,
+                dashArray: [ 60, 20 ],
                 color: getColorByWeight(attributes.weight),
               }}
               positions={latlngs}

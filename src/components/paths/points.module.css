@@ -4,19 +4,42 @@
 .route{
     display: flex;
 }
+
+.routeWeight{
+    font-weight: bold;
+    width: 35px;
+    padding: 0.5rem;
+    background: green;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+}
+.summary{
+    display: flex;
+    cursor: pointer;
+    padding: 0.5rem;
+    &:hover{
+        background: #e7e5e5;
+    }
+}
+
 .routeLabel{
     font-weight: bold;
-    width: 16px;
     padding: 0.5rem 0;
+    margin-left: 0.5rem;
 }
 
 .routeRow{
-   padding: 0.5rem;
+    padding: 0.5rem 2.5rem;
+    background: #e7e5e5;
 }
 .routeCity{
     
     &:not(:last-child):after {
-        content: "-";
+        content: "→";
         padding: 0 0.5rem;
     }
+}
+.details[open] {
+    background: #e7e5e5;
 }

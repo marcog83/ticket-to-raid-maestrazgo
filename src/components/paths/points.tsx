@@ -11,10 +11,22 @@ export const Points = () => {
 
       {shortestPaths.map(([ weight, ...path ]) => (
         <div className={styles.route}>
-          <span className={styles.routeLabel}>{weight}</span>
-          <div className={styles.routeRow}>
-            {path.map((city) => <span className={styles.routeCity}>{city}</span>)}
-          </div>
+          <details className={styles.details}>
+            <summary className={styles.summary}>
+              <span className={styles.routeWeight}>{weight}</span>
+              <div className={styles.routeLabel}>
+
+                <span>{path[0]}</span>
+                <span> → </span>
+                <span>{path.at(-1)}</span>
+
+              </div>
+            </summary>
+            <div className={styles.routeRow}>
+              {path.map((city) => <span className={styles.routeCity}>{city}</span>)}
+            </div>
+          </details>
+
         </div>
       ))}
     </div>

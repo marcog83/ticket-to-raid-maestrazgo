@@ -9,14 +9,14 @@ export const Route = ({ name, nodes, weight }) => (
     </p>
     <ul className={styles.routeParts}>
       {
-            nodes.map((node) => (
-              <li key={node}>
-                {
-                node
-            }
-              </li>
-            ))
+        nodes.map((node) => (
+          <li key={node}>
+            {
+            node
         }
+          </li>
+        ))
+      }
     </ul>
   </div>
 );
