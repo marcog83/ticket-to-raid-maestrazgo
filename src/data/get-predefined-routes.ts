@@ -2,7 +2,7 @@ import { edgePathFromNodePath } from 'graphology-shortest-path';
 import { getName } from '../context/get-name';
 import preDefinedRoutes from './predefined-routes.csv?raw';
 
-export const getPredefinedRoutes = (graph) => preDefinedRoutes.split('\n')
+export const getPredefinedRoutes = (graph:any) => preDefinedRoutes.split('\n')
   .map((line) => {
     const [ name, ...nodes ] = line.split(',');
     const weight = edgePathFromNodePath(graph, nodes).reduce((acc, edge) => {

@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import styles from './route.module.css';
 
-export const Route = ({ name, nodes, weight }) => (
+export const Route:FC<{ name:string, nodes:string[], weight:number }> = ({ name, nodes, weight }) => (
   <div className={styles.route}>
     <p className={styles.routeTitle}>
       <strong className={styles.routeTitleNumber}>{weight}</strong>
@@ -9,7 +10,7 @@ export const Route = ({ name, nodes, weight }) => (
     </p>
     <ul className={styles.routeParts}>
       {
-        nodes.map((node) => (
+        nodes.map((node:any) => (
           <li key={node}>
             {
             node
