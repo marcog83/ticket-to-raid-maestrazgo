@@ -5,8 +5,11 @@
 }
 .route{
     display: flex;
+    
 }
-
+.routeActive{
+        background: #e7e5e5;
+    }
 .routeWeight{
     font-weight: bold;
     width: 35px;
@@ -43,6 +46,7 @@
     background: #e7e5e5;
     display: flex;
     flex-wrap: wrap;
+    
 }
 .routeCity{
     

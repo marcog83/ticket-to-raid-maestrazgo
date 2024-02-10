@@ -6,6 +6,19 @@ import { Data, DataItem } from '../../data/get-data';
 import { Map } from '../map/map';
 import { Stats } from './stats';
 
+const sortByFlag = (arr) => {
+  const sorter = (a, b) => {
+    if (!a.flag && b.flag) {
+      return -1;
+    }
+    if (a.flag && !b.flag) {
+      return 1;
+    }
+    return a.other - b.other;
+  };
+  arr.sort(sorter);
+};
+
 export const Points = () => {
   const graph = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
@@ -34,6 +47,7 @@ export const Points = () => {
     .flatMap(
       (idSelected) => shortestPaths.find(([ ,id ]) => id === idSelected)?.slice(2),
     );
+  const uniqueItemsSet = new Set(selectedPaths);
   const uniqueItems = [ ...new Set(allItems) ];
   const uniqueIds = new Set(uniqueItems.map((city) => Data.find((place) => place.name === city)?.id ?? -1));
 
@@ -58,14 +72,20 @@ export const Points = () => {
           />
         </div>
         {shortestPaths
-          .filter(([ weight,,first, ...path ]) => {
+          .sort(([ , a ], [ , b ]) => {
+            const compare = -Number(uniqueItemsSet.has(a)) + Number(uniqueItemsSet.has(b));
+
+            return compare;
+          })
+          .filter(([ weight, id, first, ...path ]) => {
+            if (uniqueItemsSet.has(id)) return true;
             if (!query) return true;
             if (!Number.isNaN(parseInt(query, 10))) return Number(weight) === parseInt(query, 10);
             return String(first).toLowerCase().startsWith(query)
              || String(path.at(-1)).toLowerCase().startsWith(query);
           })
           .map(([ weight, id, ...path ]) => (
-            <div className={styles.route} key={path.join('')}>
+            <div className={`${ styles.route } ${ uniqueItemsSet.has(id) ? styles.routeActive : '' }`} key={path.join('')}>
               <details className={styles.details}>
                 <summary className={styles.summary}>
                   <span className={styles.routeWeight}>{weight}</span>
@@ -76,6 +96,7 @@ export const Points = () => {
                     <span>{path.at(-1)}</span>
                     <input
                       type="checkbox"
+                      defaultChecked={uniqueItemsSet.has(id)}
                       onChange={(e:ChangeEvent<HTMLInputElement>) => handleChange(e.target.checked, id as number)}
                       className={styles.checkbox}
                     />
