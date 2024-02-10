@@ -1,0 +1,10 @@
+.menu{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 1px 4px 1px #00000038;
+    z-index: 3000;
+    position: relative;
+}
+.menuItem{
+    padding:0.5rem;
+}

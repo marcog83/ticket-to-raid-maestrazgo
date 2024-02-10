@@ -6,16 +6,7 @@ import remarkGfm from 'remark-gfm';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/ticket-to-raid-maestrazgo/',
-  server: {
-    proxy: {
-      '/api-user-preferences': {
-        target: 'https://m-3-sit.adidas.com/3d-party/user-preferences',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api-user-preferences/, ''),
-      },
-    },
-  },
+
   plugins: [
     { enforce: 'pre',
       ...mdx({
