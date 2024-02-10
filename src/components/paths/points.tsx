@@ -4,6 +4,7 @@ import { findShortestPaths } from '../../data/find-shortest-paths';
 import styles from './points.module.css';
 import { Data, DataItem } from '../../data/get-data';
 import { Map } from '../map/map';
+import { Stats } from './stats';
 
 export const Points = () => {
   const graph = useGraph();
@@ -21,6 +22,12 @@ export const Points = () => {
 
       return newSelected;
     });
+  };
+
+  const [ query, setQuery ] = useState('');
+
+  const handleSearch = (e:ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
   };
 
   const allItems = selectedPaths
@@ -42,44 +49,60 @@ export const Points = () => {
   return (
     <div className={styles.pointsContainer}>
       <div className={styles.routes}>
+        <div className={styles.search}>
+          <input
+            type="text"
+            className={styles.searchInput}
+            value={query}
+            onChange={handleSearch}
+          />
+        </div>
+        {shortestPaths
+          .filter(([ ,,first, ...path ]) => {
+            if (!query) return true;
+            return String(first).toLowerCase().startsWith(query)
+             || String(path.at(-1)).toLowerCase().startsWith(query);
+          })
+          .map(([ weight, id, ...path ]) => (
+            <div className={styles.route} key={path.join('')}>
+              <details className={styles.details}>
+                <summary className={styles.summary}>
+                  <span className={styles.routeWeight}>{weight}</span>
+                  <div className={styles.routeLabel}>
 
-        {shortestPaths.map(([ weight, id, ...path ]) => (
-          <div className={styles.route} key={path.join('')}>
-            <details className={styles.details}>
-              <summary className={styles.summary}>
-                <span className={styles.routeWeight}>{weight}</span>
-                <div className={styles.routeLabel}>
-
-                  <span>{path[0]}</span>
-                  <span> - </span>
-                  <span>{path.at(-1)}</span>
-                  <input
-                    type="checkbox"
-                    onChange={(e:ChangeEvent<HTMLInputElement>) => handleChange(e.target.checked, id as number)}
-                    className={styles.checkbox}
-                  />
+                    <span>{path[0]}</span>
+                    <span> - </span>
+                    <span>{path.at(-1)}</span>
+                    <input
+                      type="checkbox"
+                      onChange={(e:ChangeEvent<HTMLInputElement>) => handleChange(e.target.checked, id as number)}
+                      className={styles.checkbox}
+                    />
+                  </div>
+                </summary>
+                <div className={styles.routeRow}>
+                  {path.map((city) => (
+                    <span
+                      key={city}
+                      className={styles.routeCity}
+                    >
+                      {city}
+                    </span>
+                  ))}
                 </div>
-              </summary>
-              <div className={styles.routeRow}>
-                {path.map((city) => (
-                  <span
-                    key={city}
-                    className={styles.routeCity}
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
-            </details>
+              </details>
 
-          </div>
-        ))}
+            </div>
+          ))}
       </div>
       <GraphProvider data={selectedItems}>
+
         <div className={styles.mapContainer}>
 
           <Map />
+
         </div>
+        <Stats />
       </GraphProvider>
     </div>
   );

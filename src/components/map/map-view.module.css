@@ -1,8 +1,10 @@
 .mapView{
     display: flex;
+    height: calc(100vh - 34px);
+    overflow: hidden;
 }
 .mapContainer{
     position: relative;
     flex: 1;
-    height: 100vh;
+    height: calc(100vh - 34px);
 }

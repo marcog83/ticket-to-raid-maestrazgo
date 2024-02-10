@@ -1,0 +1,29 @@
+.stats{
+    padding: 0.5rem;
+    width: 350px;
+}
+
+.statsContent{
+    
+    overflow: auto;
+    max-height: 300px;
+}
+
+
+.statItem{
+    padding: 0.5rem;
+    display: flex;
+}
+.statValue{
+    background: grey;
+    border-radius: 50%;
+    color: white;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statLabel{
+    margin-left: 0.5rem;
+}

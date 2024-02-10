@@ -27,7 +27,7 @@ export const getGraph = (data:DataItem[]) => {
       graph.addNode(id, {
         latitude,
         longitude,
-
+        name,
         label: `${ id }:: ${ name }`,
       });
     }
