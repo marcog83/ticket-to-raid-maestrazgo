@@ -41,6 +41,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
     }, [] as {
       weight:number,
       path: string[],
+      id:number
     }[]);
     results[node] = tmp;
   });

@@ -2,14 +2,14 @@ import { ChangeEvent, useState } from 'react';
 import { GraphProvider, useGraph } from '../../context/graph';
 import { findShortestPaths } from '../../data/find-shortest-paths';
 import styles from './points.module.css';
-import { Data } from '../../data/get-data';
+import { Data, DataItem } from '../../data/get-data';
 import { Map } from '../map/map';
 
 export const Points = () => {
   const graph = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
   const [ selectedPaths, setSelected ] = useState<number[]>([]);
-  const handleChange = (add, route) => {
+  const handleChange = (add:boolean, route:number) => {
     setSelected((selected) => {
       let newSelected = [ ...selected ];
       if (add) {
@@ -23,16 +23,16 @@ export const Points = () => {
     });
   };
 
-  let selectedItems = selectedPaths
+  const allItems = selectedPaths
     .flatMap(
       (idSelected) => shortestPaths.find(([ ,id ]) => id === idSelected)?.slice(2),
     );
-  const uniqueItems = [ ...new Set(selectedItems) ];
+  const uniqueItems = [ ...new Set(allItems) ];
   const uniqueIds = new Set(uniqueItems.map((city) => Data.find((place) => place.name === city)?.id ?? -1));
 
-  selectedItems = uniqueItems
+  const selectedItems:DataItem[] = uniqueItems
     .map((name) => {
-      const place = Data.find((place) => place.name === name);
+      const place = Data.find((place) => place.name === name)!;
 
       return {
         ...place,
@@ -55,7 +55,7 @@ export const Points = () => {
                   <span>{path.at(-1)}</span>
                   <input
                     type="checkbox"
-                    onChange={(e:ChangeEvent<HTMLInputElement>) => handleChange(e.target.checked, id)}
+                    onChange={(e:ChangeEvent<HTMLInputElement>) => handleChange(e.target.checked, id as number)}
                     className={styles.checkbox}
                   />
                 </div>
