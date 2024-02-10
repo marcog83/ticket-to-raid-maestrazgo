@@ -58,8 +58,9 @@ export const Points = () => {
           />
         </div>
         {shortestPaths
-          .filter(([ ,,first, ...path ]) => {
+          .filter(([ weight,,first, ...path ]) => {
             if (!query) return true;
+            if (!Number.isNaN(parseInt(query, 10))) return Number(weight) === parseInt(query, 10);
             return String(first).toLowerCase().startsWith(query)
              || String(path.at(-1)).toLowerCase().startsWith(query);
           })

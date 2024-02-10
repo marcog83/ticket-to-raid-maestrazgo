@@ -1,5 +1,8 @@
+import betweennessCentrality from 'graphology-metrics/centrality/betweenness';
+
 import { useGraph } from '../../context/graph';
 import styles from './stats.module.css';
+import { Data } from '../../data/get-data';
 
 export const Stats = () => {
   const graph = useGraph();
@@ -9,6 +12,11 @@ export const Stats = () => {
     degree: graph.degree(node),
   })).sort((a, b) => b.degree - a.degree);
 
+  const betweenness = graph.order ? betweennessCentrality(graph) : {};
+  const results = Object.entries(betweenness).map(([ id, value ]) => ({
+    name: Data.find((item) => item.id === Number(id))!.name,
+    value: value.toFixed(2),
+  })).sort((a, b) => Number(b.value) - Number(a.value));
   return (
     <div className={styles.stats}>
       <details open>
@@ -24,13 +32,19 @@ export const Stats = () => {
           ))}
         </ul>
       </details>
-      <details>
+      <details open>
         <summary>
           <h2>Betweenness Centrality</h2>
-          {' '}
         </summary>
-        <ul>
-          <li>TODO</li>
+        <ul className={styles.statsContent}>
+          {results.map((city) => (
+            <li key={city.name}>
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>{city.value}</span>
+                <span className={styles.statLabel}>{city.name}</span>
+              </div>
+            </li>
+          ))}
         </ul>
       </details>
 
