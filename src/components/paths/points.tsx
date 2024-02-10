@@ -60,12 +60,12 @@ export const Points = () => {
         </div>
         {shortestPaths
           .sort(([ , a ], [ , b ]) => {
-            const compare = -Number(uniqueItemsSet.has(a)) + Number(uniqueItemsSet.has(b));
+            const compare = -Number(uniqueItemsSet.has(Number(a))) + Number(uniqueItemsSet.has(Number(b)));
 
             return compare;
           })
           .filter(([ weight, id, first, ...path ]) => {
-            if (uniqueItemsSet.has(id)) return true;
+            if (uniqueItemsSet.has(Number(id))) return true;
             if (!query) return true;
             if (!Number.isNaN(parseInt(query, 10))) return Number(weight) === parseInt(query, 10);
             return String(first).toLowerCase().startsWith(query)
@@ -74,7 +74,7 @@ export const Points = () => {
           .map(([ weight, id, ...path ]) => (
             <div
               className={`${ styles.route } 
-            ${ uniqueItemsSet.has(id) ? styles.routeActive : '' }`}
+            ${ uniqueItemsSet.has(Number(id)) ? styles.routeActive : '' }`}
               key={path.join('')}
             >
               <details className={styles.details}>
@@ -87,7 +87,7 @@ export const Points = () => {
                     <span>{path.at(-1)}</span>
                     <input
                       type="checkbox"
-                      defaultChecked={uniqueItemsSet.has(id)}
+                      defaultChecked={uniqueItemsSet.has(Number(id))}
                       onChange={(e:ChangeEvent<HTMLInputElement>) => handleChange(e.target.checked, id as number)}
                       className={styles.checkbox}
                     />

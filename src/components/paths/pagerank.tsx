@@ -8,8 +8,8 @@ export const Pagerank = () => {
   const scores = graph.order ? pagerank(graph) : {};
   const results = Object.entries(scores).map(([ id, value ]) => ({
     name: Data.find((item) => item.id === Number(id))!.name,
-    value: (value * 100).toFixed(2),
-  })).sort((a, b) => Number(b.value) - Number(a.value));
+    value: Number((value * 100).toFixed(2)),
+  })).sort((a, b) => b.value - a.value);
   return (
     <StatContent
       title="Pagerank"
