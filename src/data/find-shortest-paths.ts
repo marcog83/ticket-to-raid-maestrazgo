@@ -7,6 +7,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
   const results:Record<string, {
     weight: number;
     path: string[];
+    id:number
   }[]> = {};
   const uniquePathsSet = new Set(); // Set to track unique paths
 
@@ -15,6 +16,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
     const tmp:{
       weight:number,
       path: string[],
+      id:number
     }[] = Object.entries(paths).reduce((acc, [ , nodePath ]) => {
       if (nodePath.length <= 1) return acc;
       const weight = edgePathFromNodePath(graph, nodePath).reduce((acc, edge) => {
@@ -33,6 +35,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
         ...acc, {
           weight,
           path: nodePath,
+          id: uniquePathsSet.size,
         },
       ];
     }, [] as {
@@ -44,7 +47,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
 
   const shortest = Object.keys(results).map((node) => {
     const paths = results[node];
-    const line = paths.map((path) => [ path.weight, ...path.path.map(getName) ]);
+    const line = paths.map((path) => [ path.weight, path.id, ...path.path.map(getName) ]);
     return line;
   }).flat().sort((a, b) => Number(a[0]) - Number(b[0]));
 

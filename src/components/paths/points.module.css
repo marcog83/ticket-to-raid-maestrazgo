@@ -1,5 +1,6 @@
 .routes{
     padding:1rem;
+    overflow: auto;
 }
 .route{
     display: flex;
@@ -47,4 +48,15 @@
 }
 .checkbox{
    
+}
+
+.pointsContainer{
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+.mapContainer{
+    position: relative;
+    flex: 1;
+    height: 100vh;
 }

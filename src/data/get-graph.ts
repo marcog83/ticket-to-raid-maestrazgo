@@ -46,7 +46,7 @@ export const getGraph = (data:DataItem[]) => {
             });
           } catch (e) {
             // eslint-disable-next-line no-console
-            console.error(id, targetId);
+            console.error(id, targetId, e);
           }
         }
       }
