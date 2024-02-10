@@ -6,19 +6,6 @@ import { Data, DataItem } from '../../data/get-data';
 import { Map } from '../map/map';
 import { Stats } from './stats';
 
-const sortByFlag = (arr) => {
-  const sorter = (a, b) => {
-    if (!a.flag && b.flag) {
-      return -1;
-    }
-    if (a.flag && !b.flag) {
-      return 1;
-    }
-    return a.other - b.other;
-  };
-  arr.sort(sorter);
-};
-
 export const Points = () => {
   const graph = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
@@ -85,7 +72,11 @@ export const Points = () => {
              || String(path.at(-1)).toLowerCase().startsWith(query);
           })
           .map(([ weight, id, ...path ]) => (
-            <div className={`${ styles.route } ${ uniqueItemsSet.has(id) ? styles.routeActive : '' }`} key={path.join('')}>
+            <div
+              className={`${ styles.route } 
+            ${ uniqueItemsSet.has(id) ? styles.routeActive : '' }`}
+              key={path.join('')}
+            >
               <details className={styles.details}>
                 <summary className={styles.summary}>
                   <span className={styles.routeWeight}>{weight}</span>
