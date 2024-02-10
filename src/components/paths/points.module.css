@@ -1,6 +1,7 @@
 .routes{
     padding:1rem;
     overflow: auto;
+    width: 450px;
 }
 .route{
     display: flex;
@@ -35,6 +36,8 @@
 .routeRow{
     padding: 0.5rem 2.5rem;
     background: #e7e5e5;
+    display: flex;
+    flex-wrap: wrap;
 }
 .routeCity{
     
@@ -46,6 +49,11 @@
 .details[open] {
     background: #e7e5e5;
 }
+
+.details{
+    flex: 1;
+}
+
 .checkbox{
    
 }
