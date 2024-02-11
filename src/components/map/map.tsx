@@ -17,7 +17,9 @@ export const Map = () => {
       center={[ 40.68708, -0.32161 ]}
       zoom={11}
       maxZoom={19}
-      // ref={refMap}
+      whenReady={({ target }) => {
+        console.log(target.getCenter());
+      }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -26,6 +28,7 @@ export const Map = () => {
       {
         graph.mapNodes((node, attributes) => (
           <Marker
+            title={attributes.name}
             key={node}
             position={[ attributes.latitude, attributes.longitude ]}
           >

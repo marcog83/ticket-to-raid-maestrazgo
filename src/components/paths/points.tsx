@@ -5,6 +5,7 @@ import styles from './points.module.css';
 import { Data, DataItem } from '../../data/get-data';
 import { Map } from '../map/map';
 import { Stats } from './stats';
+import { Cards } from './cards/cards';
 
 export const Points = () => {
   const graph = useGraph();
@@ -49,11 +50,12 @@ export const Points = () => {
     });
 
   const handleSave = () => {
-    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)))
-      .map(([ weight, id, first, ...path ]) => [ id, weight, first, path.at(-1) ].join(','))
+    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)));
+
+    const toCopy = results.map(([ weight, id, first, ...path ]) => [ id, weight, first, path.at(-1) ].join(','))
       .join('\n');
     // Copy the text inside the text field
-    navigator.clipboard.writeText(results);
+    navigator.clipboard.writeText(toCopy);
 
     // Alert the copied text
     // eslint-disable-next-line no-alert
@@ -129,6 +131,7 @@ export const Points = () => {
 
         </div>
         <Stats />
+        <Cards cards={shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)))} />
       </GraphProvider>
     </div>
   );

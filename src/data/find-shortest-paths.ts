@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { UndirectedGraph } from 'graphology';
-import { singleSource, edgePathFromNodePath } from 'graphology-shortest-path';
+import dijkstra from 'graphology-shortest-path/dijkstra';
+import { edgePathFromNodePath } from 'graphology-shortest-path';
 import { getName } from '../context/get-name';
 
 export const findShortestPaths = (graph: UndirectedGraph) => {
@@ -12,7 +13,7 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
   const uniquePathsSet = new Set(); // Set to track unique paths
 
   graph.forEachNode((node) => {
-    const paths = singleSource(graph, node);
+    const paths = dijkstra.singleSource(graph, node);
     const tmp:{
       weight:number,
       path: string[],
