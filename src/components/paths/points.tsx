@@ -47,6 +47,18 @@ export const Points = () => {
         connections: place?.connections.filter((idConn) => uniqueIds.has(idConn)) ?? [],
       };
     });
+
+  const handleSave = () => {
+    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(id))
+      .map(([ weight, id, first, ...path ]) => [ id, weight, first, path.at(-1) ].join(','))
+      .join('\n');
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(results);
+
+    // Alert the copied text
+    // eslint-disable-next-line no-alert
+    alert(`Copied the text: ${ results }`);
+  };
   return (
     <div className={styles.pointsContainer}>
       <div className={styles.routes}>
@@ -57,6 +69,7 @@ export const Points = () => {
             value={query}
             onChange={handleSearch}
           />
+          <button type="button" onClick={handleSave}>SAVE</button>
         </div>
         {shortestPaths
           .sort(([ , a ], [ , b ]) => {

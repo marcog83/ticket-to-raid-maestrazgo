@@ -1,6 +1,6 @@
 .routes{
-    padding:1rem;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: auto;
     width: 450px;
 }
 .route{
@@ -64,12 +64,15 @@
 }
 
 .search{
+    display: flex;
  position: sticky;
     top: 0;
-    z-index: 10000;
+    z-index: 1;
+    padding: 1rem;
+    background: white;
 }
 .searchInput{
-
+margin-right:1rem;
   width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
