@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { MapContainer, Marker, Polyline, TileLayer } from 'react-leaflet';
 import { Data } from '../../../data/get-data';
 import styles from './card.module.css';
+import cardImg from './card.png';
 
 export const Bounds = [
   [ 40.54511315470123, -0.7161712646484376 ],
@@ -34,18 +35,12 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
             });
           }}
         >
-          <TileLayer
 
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
           <Marker
             title={source.name}
             position={[ source.latitude, source.longitude ]}
           />
           <Marker
-          icon={{
-            icon
-          }}
             title={destination.name}
             position={[ destination.latitude, destination.longitude ]}
           />
@@ -59,7 +54,7 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
           />
         </MapContainer>
       </div>
-
+      <img src={cardImg} className={styles.img} />
     </div>
   );
 };

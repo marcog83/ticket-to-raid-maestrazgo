@@ -1,4 +1,11 @@
 .card{
     width: 400px;
-/* height: 300px; */
+position: relative;
+}
+.img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
 }
