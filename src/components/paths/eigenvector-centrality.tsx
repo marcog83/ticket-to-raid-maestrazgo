@@ -5,11 +5,17 @@ import { Data } from '../../data/get-data';
 
 export const EigenvectorCentrality = () => {
   const graph = useGraph();
-  const centrality = graph.order ? eigenvectorCentrality(graph) : {};
-  const results = Object.entries(centrality).map(([ id, value ]) => ({
-    name: Data.find((item) => item.id === Number(id))!.name,
-    value: Number((value * 100).toFixed(2)),
-  })).sort((a, b) => b.value - a.value);
+  let centrality = {};
+  let results = [];
+  try {
+    centrality = graph.order ? eigenvectorCentrality(graph) : {};
+    results = Object.entries(centrality).map(([ id, value ]) => ({
+      name: Data.find((item) => item.id === Number(id))!.name,
+      value: Number((value * 100).toFixed(2)),
+    })).sort((a, b) => b.value - a.value);
+  } catch (e) {
+    return <p>Cannot Converge</p>;
+  }
 
   return (
     <StatContent
