@@ -1,18 +1,23 @@
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Polyline, Tooltip } from 'react-leaflet';
+import { useRef } from 'react';
+import { type Map as LeafletMap } from 'leaflet';
 import { getColorByWeight } from './get-color-by-weight';
 import styles from './map.module.css';
 import { useGraph } from '../../context/graph';
 
 export const Map = () => {
   const graph = useGraph();
-
+  const refMap = useRef<LeafletMap>();
+  // eslint-disable-next-line no-console
+  console.log(refMap.current?.getBounds());
   return (
     <MapContainer
       className={styles.map}
       center={[ 40.68708, -0.32161 ]}
       zoom={11}
       maxZoom={19}
+      // ref={refMap}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -49,7 +49,7 @@ export const Points = () => {
     });
 
   const handleSave = () => {
-    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(id))
+    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)))
       .map(([ weight, id, first, ...path ]) => [ id, weight, first, path.at(-1) ].join(','))
       .join('\n');
     // Copy the text inside the text field
