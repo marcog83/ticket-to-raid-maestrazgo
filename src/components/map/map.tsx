@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css';
-import { MapContainer, TileLayer, Marker, Polyline, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, Popup, CircleMarker, Polyline, Tooltip } from 'react-leaflet';
 import { useRef } from 'react';
 import { type Map as LeafletMap } from 'leaflet';
 import { getColorByWeight } from './get-color-by-weight';
@@ -26,19 +26,6 @@ export const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {
-        graph.mapNodes((node, attributes) => (
-          <Marker
-            title={attributes.name}
-            key={node}
-            position={[ attributes.latitude, attributes.longitude ]}
-          >
-            <Tooltip>
-              {attributes.label}
-            </Tooltip>
-          </Marker>
-        ))
-      }
-      {
         graph.mapEdges((
           ___,
           attributes,
@@ -56,7 +43,7 @@ export const Map = () => {
             <Polyline
               key={___}
               pathOptions={{
-                weight: 7,
+                weight: 5,
                 dashOffset: '10',
                 dashArray: [ 60, 20 ],
                 color: getColorByWeight(attributes.weight),
@@ -71,6 +58,26 @@ export const Map = () => {
             </Polyline>
           );
         })
+      }
+      {
+        graph.mapNodes((node, attributes) => (
+          <CircleMarker
+            title={attributes.name}
+            key={node}
+            pathOptions={
+              {
+                fillColor: 'black',
+                fillOpacity: 1,
+                color: 'black',
+              }
+            }
+            center={[ attributes.latitude, attributes.longitude ]}
+          >
+            <Popup keepInView>
+              {attributes.label}
+            </Popup>
+          </CircleMarker>
+        ))
       }
 
     </MapContainer>

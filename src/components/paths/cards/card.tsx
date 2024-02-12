@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { MapContainer, Marker, Polyline, TileLayer } from 'react-leaflet';
+import { MapContainer, CircleMarker, Polyline } from 'react-leaflet';
 import { Data } from '../../../data/get-data';
 import styles from './card.module.css';
-import cardImg from './card.png';
+import { addMaestrazgo } from './perimeter';
 
 export const Bounds = [
   [ 40.54511315470123, -0.7161712646484376 ],
@@ -20,33 +20,38 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
   ];
   return (
     <div className={styles.card}>
-      <div>{card[0]}</div>
-      <div>{title}</div>
-      <div style={{ height: 300, width: 400, position: 'relative' }}>
+      <header className={styles.header}>
+        <div>{card[0]}</div>
+        <div>{title}</div>
+      </header>
+
+      <div style={{ height: 500, width: 450, position: 'relative' }}>
         <MapContainer
-          bounds={Bounds}
-          style={{ width: 400, height: 300 }}
+          scrollWheelZoom={false}
+          className={styles.mapContainer}
           center={[ 40.68708, -0.32161 ]}
           zoom={9}
           whenReady={({ target }) => {
-            console.log(target);
             setTimeout(() => {
               target.invalidateSize();
+              addMaestrazgo(target);
             });
           }}
         >
 
-          <Marker
+          <CircleMarker
             title={source.name}
-            position={[ source.latitude, source.longitude ]}
+            center={[ source.latitude, source.longitude ]}
+            radius={8}
           />
-          <Marker
+          <CircleMarker
             title={destination.name}
-            position={[ destination.latitude, destination.longitude ]}
+            center={[ destination.latitude, destination.longitude ]}
+            radius={8}
           />
           <Polyline
             pathOptions={{
-              weight: 7,
+              weight: 4,
 
               color: '#ffcc00',
             }}
@@ -54,7 +59,6 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
           />
         </MapContainer>
       </div>
-      <img src={cardImg} className={styles.img} />
     </div>
   );
 };

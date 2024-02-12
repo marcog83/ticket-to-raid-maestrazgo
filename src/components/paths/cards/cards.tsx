@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { Card } from './card';
+import styles from './cards.module.css';
 
 export const Cards:FC<{ cards:any[] }> = ({ cards }) => {
   const [ isOpen, setOpen ] = useState(false);
@@ -21,7 +22,10 @@ export const Cards:FC<{ cards:any[] }> = ({ cards }) => {
           >
             CLOSE
           </button>
-          {cards.map((card) => <Card card={card} />)}
+          <div className={styles.cards}>
+            {cards.map((card) => <Card card={card} />)}
+          </div>
+
         </div>
       ) : null}
     </>
