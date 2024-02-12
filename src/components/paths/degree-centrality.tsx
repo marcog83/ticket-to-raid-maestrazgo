@@ -1,3 +1,7 @@
+import {
+
+  weightedUndirectedDegree,
+} from 'graphology-metrics/node/weighted-degree';
 import { useGraph } from '../../context/graph';
 import { StatContent } from './stat-content';
 
@@ -5,7 +9,7 @@ export const DegreeCentrality = () => {
   const graph = useGraph();
   const centrality = graph.mapNodes((node, attributes) => ({
     name: attributes.name,
-    value: graph.degree(node),
+    value: weightedUndirectedDegree(graph, node),
   })).sort((a, b) => b.value - a.value);
 
   return (
