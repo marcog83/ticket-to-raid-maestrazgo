@@ -21,11 +21,11 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
   return (
     <div className={styles.card}>
       <header className={styles.header}>
-        <div>{card[0]}</div>
+        <div className={styles.points}>{card[0]}</div>
         <div>{title}</div>
       </header>
 
-      <div style={{ height: 500, width: 450, position: 'relative' }}>
+      <div className={styles.mapContainer}>
         <MapContainer
           scrollWheelZoom={false}
           className={styles.mapContainer}
@@ -34,7 +34,8 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
           whenReady={({ target }) => {
             setTimeout(() => {
               target.invalidateSize();
-              addMaestrazgo(target);
+              const layer = addMaestrazgo(target);
+              target.fitBounds(layer.getBounds());
             });
           }}
         >

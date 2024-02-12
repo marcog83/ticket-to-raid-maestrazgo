@@ -5,11 +5,10 @@ export const OSM = {};
 OSM.TileLayer = L.TileLayer.extend({
   options: {
     url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    attribution: '© <a target="_parent" href="http://www.openstreetmap.org">OpenStreetMap</a> and contributors, under an <a target="_parent" href="http://www.openstreetmap.org/copyright">open license</a>',
   },
 
-  initialize(options) {
-    options = L.Util.setOptions(this, options);
+  initialize(tileOptions) {
+    const options = L.Util.setOptions(this, tileOptions);
     L.TileLayer.prototype.initialize.call(this, options.url);
   },
 });
@@ -36,14 +35,21 @@ OSM.MapQuestOpen = OSM.TileLayer.extend({
   options: {
     url: 'http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
     subdomains: '1234',
-    attribution: "Tiles courtesy of <a href='http://www.mapquest.com/' target='_blank'>MapQuest</a> <img src='http://developer.mapquest.com/content/osm/mq_logo.png'>",
   },
 });
 
 OSM.DataLayer = L.FeatureGroup.extend({
   options: {
-    areaTags: [ 'area', 'building', 'leisure', 'tourism', 'ruins', 'historic', 'landuse', 'military', 'natural', 'sport' ],
-    uninterestingTags: [ 'source', 'source_ref', 'source:ref', 'history', 'attribution', 'created_by', 'tiger:county', 'tiger:tlid', 'tiger:upload_uuid' ],
+    areaTags: [
+      'area',
+      'building',
+      'leisure', 'tourism', 'ruins', 'historic', 'landuse', 'military', 'natural', 'sport',
+    ],
+    uninterestingTags: [
+      'source',
+      'source_ref', 'source:ref', 'history',
+      'attribution', 'created_by', 'tiger:county', 'tiger:tlid', 'tiger:upload_uuid',
+    ],
     styles: {},
   },
 
@@ -57,14 +63,15 @@ OSM.DataLayer = L.FeatureGroup.extend({
     }
   },
 
-  addData(features) {
+  addData(params) {
+    let features = params;
     if (!(features instanceof Array)) {
       features = this.buildFeatures(features);
     }
 
-    for (let i = 0; i < features.length; i++) {
-      const feature = features[i]; var
-        layer;
+    for (let i = 0; i < features.length; i += 1) {
+      const feature = features[i];
+      let layer;
 
       if (feature.type === 'node') {
         layer = L.circleMarker(feature.latLng, this.options.styles.node);
@@ -94,14 +101,13 @@ OSM.DataLayer = L.FeatureGroup.extend({
     const ways = OSM.getWays(xml, nodes);
     const relations = OSM.getRelations(xml, nodes, ways);
 
-    for (const node_id in nodes) {
-      const node = nodes[node_id];
+    Object.values(nodes).forEach((node) => {
       if (this.interestingNode(node, ways, relations)) {
         features.push(node);
       }
-    }
+    });
 
-    for (let i = 0; i < ways.length; i++) {
+    for (let i = 0; i < ways.length; i += 1) {
       const way = ways[i];
       features.push(way);
     }
@@ -110,7 +116,7 @@ OSM.DataLayer = L.FeatureGroup.extend({
   },
 
   isWayArea(way) {
-    if (way.nodes[0] != way.nodes[way.nodes.length - 1]) {
+    if (way.nodes[0] !== way.nodes[way.nodes.length - 1]) {
       return false;
     }
 
@@ -126,7 +132,7 @@ OSM.DataLayer = L.FeatureGroup.extend({
   interestingNode(node, ways, relations) {
     let used = false;
 
-    for (var i = 0; i < ways.length; i++) {
+    for (let i = 0; i < ways.length; i += 1) {
       if (ways[i].nodes.indexOf(node) >= 0) {
         used = true;
         break;
@@ -137,7 +143,7 @@ OSM.DataLayer = L.FeatureGroup.extend({
       return true;
     }
 
-    for (var i = 0; i < relations.length; i++) {
+    for (let i = 0; i < relations.length; i++) {
       if (relations[i].members.indexOf(node) >= 0) return true;
     }
 

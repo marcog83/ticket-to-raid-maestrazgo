@@ -1,9 +1,16 @@
 .card{
-    width: 450px;
+   
     position: relative;
+    :global(.leaflet-control-zoom){
+        display: none;
+    }
 }
 .header{
-    display: flex;
+    background: #dddddd;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 19px;
 }
 .img{
     position: absolute;
@@ -13,6 +20,21 @@
     width: 100%;
 }
 .mapContainer{
-    width:450px;
+    width: 500px;
     height:500px;
+}
+.points{
+    position: absolute;
+    padding: 6px;
+    top: 50px;
+    background: white;
+    border: solid;
+    border-radius: 50%;
+    font-weight: bold;
+    z-index: 10000;
+    left: 10px;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
 }
