@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { MapContainer, CircleMarker, Polyline } from 'react-leaflet';
+import { MapContainer, CircleMarker, Polyline, TileLayer } from 'react-leaflet';
 import { Data } from '../../../data/get-data';
 import styles from './card.module.css';
 import { addMaestrazgo } from './perimeter';
@@ -39,6 +39,9 @@ export const Card:FC<{ card:any[] }> = ({ card }) => {
             });
           }}
         >
+          <TileLayer
+            url="http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
+          />
 
           <CircleMarker
             title={source.name}

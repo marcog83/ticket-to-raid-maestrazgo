@@ -4,6 +4,7 @@
     "eslint-config-airbnb-typescript/base"
   ],
   "rules": {
+    "no-restricted-syntax":"off",
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/no-shadow": [
       "error",

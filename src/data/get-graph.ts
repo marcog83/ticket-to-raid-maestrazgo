@@ -4,12 +4,14 @@ import { DataItem } from './get-data';
 
 export const routesAndWeight = routes.split('\n')
   .map((line) => {
-    const [ from, to,,,weight ] = line.split(',');
+    const [ from, to, placeFrom, placeTo, weight ] = line.split(',');
     return {
       id: [ from, to ].sort().join('_'),
       from: parseInt(from, 10),
       to: parseInt(to, 10),
       weight: parseInt(weight, 10),
+      placeFrom,
+      placeTo,
     };
   });
 

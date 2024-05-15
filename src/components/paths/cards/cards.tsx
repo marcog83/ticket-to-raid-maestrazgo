@@ -15,7 +15,7 @@ export const Cards:FC<{ cards:any[] }> = ({ cards }) => {
         CARDS
       </button>
       {isOpen ? (
-        <div popover="true" id="my-popover" style={{ position: 'relative', width: '100%', height: '100%' }}>
+        <div popover="true" id="my-popover" className={styles.cardsPopover}>
           <button
             onClick={() => setOpen(false)}
             type="button"

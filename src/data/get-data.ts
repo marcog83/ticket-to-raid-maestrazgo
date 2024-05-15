@@ -15,7 +15,7 @@ export const Data:DataItem[] = cities.split('\n')
       name,
       id: parseInt(id, 10),
       connections: connections.filter(Boolean).map(Number),
-      latitude,
-      longitude,
+      latitude: Number(latitude),
+      longitude: Number(longitude),
     };
   });
