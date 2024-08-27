@@ -6,11 +6,12 @@ import { Data, DataItem } from '../../data/get-data';
 import { Map } from '../map/map';
 import { Stats } from './stats';
 import { Cards } from './cards/cards';
+import { getSavedRoutes } from './get-saved';
 
 export const Points = () => {
   const graph = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
-  const [ selectedPaths, setSelected ] = useState<number[]>([]);
+  const [ selectedPaths, setSelected ] = useState<number[]>(getSavedRoutes(shortestPaths));
   const handleChange = (add:boolean, route:number) => {
     setSelected((selected) => {
       let newSelected = [ ...selected ];
@@ -61,6 +62,7 @@ export const Points = () => {
     // eslint-disable-next-line no-alert
     alert(`Copied the text: ${ results }`);
   };
+  console.log('selectedPaths', selectedPaths.length);
   return (
     <div className={styles.pointsContainer}>
       <div className={styles.routes}>

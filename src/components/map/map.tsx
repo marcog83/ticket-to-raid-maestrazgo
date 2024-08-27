@@ -5,6 +5,7 @@ import { type Map as LeafletMap } from 'leaflet';
 import { getColorByWeight } from './get-color-by-weight';
 import styles from './map.module.css';
 import { useGraph } from '../../context/graph';
+import { addMaestrazgo } from '../paths/cards/perimeter';
 
 export const Map = () => {
   const graph = useGraph();
@@ -19,6 +20,11 @@ export const Map = () => {
       maxZoom={19}
       whenReady={({ target }) => {
         console.log(target.getCenter());
+        setTimeout(() => {
+          target.invalidateSize();
+          const layer = addMaestrazgo(target);
+          target.fitBounds(layer.getBounds());
+        });
       }}
     >
       <TileLayer
