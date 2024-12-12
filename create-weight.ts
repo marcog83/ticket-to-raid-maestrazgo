@@ -46,7 +46,7 @@ interface Edge {
   weight: number;
 }
 
-const weights = fs.readFileSync('src/data/routes-def.csv', 'utf8');
+const weights = fs.readFileSync('output.csv', 'utf8');
 
 const parsedWeights = Papa.parse<Edge>(weights, {
   header: true,
@@ -85,6 +85,6 @@ for (const row of data) {
 const outputCsv = Papa.unparse(edges);
 
 // Write output CSV
-fs.writeFileSync('output.csv', outputCsv);
+fs.writeFileSync('src/data/routes-def.csv', outputCsv);
 
-console.log('Output written to output.csv');
+console.log('Output written to src/data/routes-def.csv');

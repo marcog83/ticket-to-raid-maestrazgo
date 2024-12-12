@@ -7,8 +7,8 @@ import { IConnection, Place } from './data.types';
 export const prefillData = async (connection:Connection) => {
   await connection.insert<Place>({
     into: Places,
-    values: Data.map(({ name, latitude, longitude }) => ({
-      name, latitude, longitude,
+    values: Data.map(({ id, name, latitude, longitude }) => ({
+      name, latitude, longitude, id,
     })),
     return: true,
   });

@@ -1,72 +1,67 @@
 id,weight,source,target
-429,10,Gargallo,Morron
-775,12,Mirambel,Montoro mezquita
-84,7,Bordon,Molinos
-960,10,Olocau del Rey,Seno
-21,9,Aguaviva,La Todolella
-89,9,Cañada,Ejulve
-399,15,Fortanete,Las cuevas de cañart
-126,15,Cañada,Seno
-999,15,Portel de Morella,Aguaviva
-474,15,Iglesuela de cid,Montoro mezquita
-928,12,Nacimiento del Rio Bordon,Rio Pitarque
-401,19,Fortanete,Seno
-1143,25,Valdelinares,Seno
-719,16,Les Albaredes,Seno
-309,15,Existe,La Todolella
-86,5,Bordon,La Cuba
-135,10,Cantavieja,Pitarque
-738,9,Luco,Morella
-664,6,Las Parras,Puente Fonseca
-270,12,Ejulve,Tronchon
-878,24,Mosquerela,Morella
-917,10,Muela Monchen,Ladruñan
-1124,7,Tronchon,Ladruñan
-522,7,La Mata,Muela Monchen
-1118,7,Tronchon,Torremocha
-28,8,Aguaviva,Bordon
-56,17,Bordon,Valdelinares
-306,11,Existe,Muela Monchen
-66,6,Bordon,Cinctorres
-339,10,Forcall,Iglesuela de cid
-782,23,Molinos,Valdelinares
-884,20,Mosquerela,Torremocha
-1114,12,Tronchon,Zorita
-909,8,Muela Monchen,Morron
-954,10,Olocau del Rey,Zorita
-404,9,Fortanete,La Cuba
-371,8,Fortanete,Pitarque
-294,18,Existe,Organo de Montoro
-571,11,La Todolella,Seno
-650,9,Las Parras,Mirambel
-863,5,Morron,Salto del Huergo
-127,13,Cañada,Molinos
-424,20,Gargallo,Zorita
-933,9,Nacimiento del Rio Bordon,Saltapin
-367,8,Forcall,Las Parras
-934,10,Nacimiento del Rio Bordon,Zorita
-658,6,Las Parras,Morron
-222,12,Cinctorres,Fortanete
-285,6,Ejulve,Puente Fonseca
-1042,16,Rio Aguaviva,Villarluengo
-1070,19,Saltapin,Cañada
-648,12,Las Parras,Portel de Morella
-252,15,Cinctorres,Montoro mezquita
-1120,13,Tronchon,Rio Aguaviva
-535,7,La Mata,Salto del Huergo
-242,8,Cinctorres,Torremocha
-513,12,La Mata,Pitarque
-910,9,Muela Monchen,Luco
-706,8,Les Albaredes,Muela Monchen
-421,17,Gargallo,Cinctorres
-441,16,Gargallo,La Cuba
-731,9,Luco,Portel de Morella
-898,8,Muela Monchen,Rio Pitarque
-1,14,Aguaviva,Gargallo
-978,14,Pitarque,Valdelinares
-331,16,Forcall,Gargallo
-1122,8,Tronchon,Salto del Huergo
-201,5,Castellote,Luco
-189,11,Castellote,Tronchon
-537,7,La Mata,Ladruñan
-858,10,Morron,Zorita
+421,3,Forcall,Luco
+650,4,La Todolella,Morron
+294,4,Cinctorres,Morella
+189,5,Cantavieja,Villarluengo
+884,5,Mirambel,Luco
+1120,5,Nacimiento del Rio Bordon,Puente Fonseca
+441,6,Fortanete,Pitarque
+424,6,Forcall,Rio Aguaviva
+1124,6,Olocau del Rey,Organo de Montoro
+28,6,Aguaviva,Bordon
+571,6,La Cuba,Zorita
+474,7,Fortanete,Montoro mezquita
+878,7,Mirambel,Saltapin
+658,7,La Todolella,Las cuevas de cañart
+404,7,Forcall,Iglesuela de cid
+978,7,Morella,Zorita
+127,7,Bordon,Rio Aguaviva
+21,7,Aguaviva,La Todolella
+898,7,Molinos,Villarluengo
+331,8,Ejulve,Tronchon
+537,8,Iglesuela de cid,Luco
+429,8,Forcall,Castellote
+1114,8,Nacimiento del Rio Bordon,Saltapin
+1118,8,Nacimiento del Rio Bordon,Rio Aguaviva
+782,8,Las Planas,Muela Monchen
+731,8,Las cuevas de cañart,Montoro mezquita
+252,8,Castellote,Zorita
+917,8,Molinos,Torremocha
+339,9,Ejulve,Nacimiento del Rio Bordon
+535,9,Iglesuela de cid,Nacimiento del Rio Bordon
+1070,9,Muela Monchen,Puente Fonseca
+399,9,Forcall,Villarluengo
+1122,9,Nacimiento del Rio Bordon,Montoro mezquita
+775,9,Las Planas,Cantavieja
+960,9,Montoro mezquita,Puerto de Fortanete
+66,9,Alto del Hornillo,Tronchon
+513,10,Gargallo,Las Parras
+306,10,Cinctorres,Las cuevas de cañart
+135,10,Bordon,Montoro mezquita
+999,10,Morron,Iglesuela de cid
+909,10,Molinos,La Mata
+285,11,Cinctorres,Mosqueruela
+863,11,Luco,Montoro mezquita
+1,11,Aguaviva,Gargallo
+706,11,Las cuevas de cañart,Puerto Cuarto Pelado
+933,11,Montoro mezquita,Valdelinares
+664,12,La Todolella,Puerto de Fortanete
+309,12,Cinctorres,Molinos
+401,12,Forcall,Rio Pitarque
+719,12,Las cuevas de cañart,Morella
+910,12,Molinos,Cinctorres
+954,12,Montoro mezquita,Salto del Huergo
+222,13,Cantavieja,Castellote
+371,13,Existe,La Mata
+934,13,Montoro mezquita,Les Albaredes
+738,13,Las Parras,Pitarque
+84,13,Alto del Hornillo,Puente Fonseca
+86,15,Alto del Hornillo,Las cuevas de cañart
+89,15,Alto del Hornillo,Molinos
+1042,16,Mosqueruela,Salto del Huergo
+270,16,Castellote,Puerto de Fortanete
+315,7,Cinctorres,Nacimiento de Las Truchas
+1083,8,Nacimiento de Las Truchas,Puerto Cuarto Pelado
+12,19,Aguaviva,Valdelinares
+1047,6,Mosqueruela,Puerto de Fortanete
+190,7,Cantavieja,Pitarque
