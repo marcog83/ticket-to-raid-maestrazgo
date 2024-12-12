@@ -23,6 +23,6 @@
   "exclude": [
     "**/raw-files"
   ],
-  "include": ["src"],
+  "include": ["src","create-weight.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

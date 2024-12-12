@@ -1,14 +1,15 @@
+sourceId,targetId,sourceName,targetName,weight
 38,37,aguaviva,Rio aguaviva,2
-38,48,aguaviva,las parras,3
-38,44,aguaviva,seno,6
+38,48,aguaviva,las parras,2
+38,44,aguaviva,seno,4
 31,22,bordon,la todolella,3
 31,28,bordon,olocau del rey,2
-31,34,bordon,Luco,2
+31,34,bordon,Luco,1
 31,33,bordon,morron,1
 31,32,bordon,nacimiento del rio bordon,1
-8,5,cañada,villarluengo,3
-8,7,cañada,rio pitarque,3
-8,10,cañada,fortanete,4
+8,5,cañada,villarluengo,2
+8,7,cañada,rio pitarque,2
+8,10,cañada,fortanete,3
 8,9,cañada,puerto cuarto pelado,3
 11,9,cantavieja,puerto cuarto pelado,3
 11,19,cantavieja,muela monchen,2
@@ -28,8 +29,8 @@
 3,46,ejulve,montoro mezquita,5
 3,42,ejulve,las cuevas de cañart,4
 3,4,ejulve,organo de montoro,5
-16,17,existence,mosquerela,4
-16,12,existence,iglesuela de cid,6
+16,17,Existe,mosquerela,4
+16,12,Existe,iglesuela de cid,6
 16,13,existence,valdelinares,6
 24,22,forcall,la todolella,2
 24,26,forcall,zorita,4

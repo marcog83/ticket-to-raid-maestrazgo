@@ -7,11 +7,14 @@ import { Map } from '../map/map';
 import { Stats } from './stats';
 import { Cards } from './cards/cards';
 import { getSavedRoutes } from './get-saved';
+import { Entropy } from './entropy';
+import { PathsCentrality } from './paths-centrality';
 
 export const Points = () => {
   const graph = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
-  const [ selectedPaths, setSelected ] = useState<number[]>(getSavedRoutes(shortestPaths));
+  const initialRoutes = getSavedRoutes(shortestPaths);
+  const [ selectedPaths, setSelected ] = useState<number[]>(initialRoutes);
   const handleChange = (add:boolean, route:number) => {
     setSelected((selected) => {
       let newSelected = [ ...selected ];
@@ -60,9 +63,36 @@ export const Points = () => {
 
     // Alert the copied text
     // eslint-disable-next-line no-alert
-    alert(`Copied the text: ${ results }`);
+    alert('Copied the text');
   };
-  console.log('selectedPaths', selectedPaths.length);
+
+  const getGroups = () => {
+    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)));
+
+    const toCopy = results.flatMap(([ , , first, ...path ]) => [ first, path.at(-1) ].sort());
+
+    const _groups = Object.groupBy(toCopy, (name) => name);
+
+    const groups = Object.entries(_groups).reduce((acc, [ key, values ]) => {
+      acc[key] = values.length;
+      return acc;
+    }, {});
+
+    return groups;
+  };
+
+  const getSelected = () => {
+    const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)));
+
+    const names = results.flatMap(([ , , first, ...path ]) => [ first, path.at(-1) ]);
+    const ids = names.map((name) => Data.find((place) => place.name === name)!.id);
+    return new Set(ids);
+  };
+  const [ width, setPanelWidth ] = useState(400);
+  const togglePanel = () => {
+    setPanelWidth(width === 400 ? '100%' : 400);
+  };
+
   return (
     <div className={styles.pointsContainer}>
       <div className={styles.routes}>
@@ -132,8 +162,14 @@ export const Points = () => {
           <Map />
 
         </div>
-        <Stats />
-        <Cards cards={shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)))} />
+        <div style={{ width, overflow: 'auto' }}>
+          <button onClick={togglePanel}>+</button>
+          <Cards cards={shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)))} />
+          <Stats />
+          <Entropy selectedIds={getSelected()} groups={getGroups()} />
+          <PathsCentrality paths={shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)))} />
+        </div>
+
       </GraphProvider>
     </div>
   );

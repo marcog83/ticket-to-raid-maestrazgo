@@ -3,6 +3,7 @@ import routes from './routes-def.csv?raw';
 import { DataItem } from './get-data';
 
 export const routesAndWeight = routes.split('\n')
+  .slice(1)
   .map((line) => {
     const [ from, to, placeFrom, placeTo, weight ] = line.split(',');
     return {

@@ -9,6 +9,7 @@ export type DataItem = {
 };
 
 export const Data:DataItem[] = cities.split('\n')
+  .slice(1)
   .map((line) => {
     const [ id, name, latitude, longitude, ...connections ] = line.split(',');
     return {

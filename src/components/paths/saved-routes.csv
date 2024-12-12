@@ -1,54 +1,71 @@
-934,3,Nacimiento del Rio Bordon,Olocau del Rey
+id,weight,source,target
+1115,4,Tronchon,Bordon
 229,4,Cinctorres,Mirambel
 64,4,Bordon,La Mata
+687,4,Las Planas,Morron
 35,4,Aguaviva,Salto del Huergo
 104,5,Cañada,Muela Monchen
 67,5,Bordon,Forcall
-1054,5,Rio Aguaviva,Salto del Huergo
+939,5,Nacimiento del Rio Bordon,Puente Fonseca
 628,5,Las cuevas de cañart,Nacimiento del Rio Bordon
-374,6,Fortanete,Iglesuela de cid
+257,6,Ejulve,Villarluengo
+1019,6,Puerto Cuarto Pelado,Rio Pitarque
 301,6,Existe,Valdelinares
-371,7,Fortanete,Pitarque
+950,6,Olocau del Rey,Portel de Morella
+497,6,La Cuba,Morron
+370,7,Fortanete,Villarluengo
+374,7,Fortanete,Iglesuela de cid
 707,7,Les Albaredes,Tronchon
-870,7,Mosquerela,Puerto Cuarto Pelado
 525,7,La Mata,Saltapin
 237,7,Cinctorres,Morella
-1073,7,Saltapin,Zorita
 743,7,Luco,Rio Aguaviva
+1054,7,Rio Aguaviva,Torremocha
 577,7,Ladruñan,Villarluengo
+198,7,Castellote,Bordon
 438,8,Gargallo,Seno
 440,8,Gargallo,Montoro mezquita
-986,8,Pitarque,Puente Fonseca
+258,8,Ejulve,Pitarque
+371,8,Fortanete,Pitarque
 149,8,Cantavieja,La Todolella
-1120,8,Tronchon,Salto del Huergo
+870,8,Mosquerela,Puerto Cuarto Pelado
 346,8,Forcall,Tronchon
 834,8,Morella,Zorita
 54,8,Bordon,Cantavieja
 68,8,Bordon,Saltapin
-939,8,Nacimiento del Rio Bordon,Castellote
 492,8,La Cuba,Saltapin
-502,8,La Cuba,Salto del Huergo
-1060,9,Rio Pitarque,Tronchon
-140,9,Cantavieja,Valdelinares
-873,9,Mosquerela,Muela Monchen
-925,9,Nacimiento del Rio Bordon,Villarluengo
+136,9,Cantavieja,Rio Pitarque
+714,9,Les Albaredes,Luco
+69,9,Bordon,Zorita
 600,9,Ladruñan,Rio Aguaviva
+197,9,Castellote,Olocau del Rey
+799,9,Molinos,Montoro mezquita
+809,9,Montoro mezquita,Tronchon
 650,9,Las Parras,Mirambel
+140,10,Cantavieja,Valdelinares
+873,10,Mosquerela,Muela Monchen
 566,10,La Todolella,Rio Aguaviva
-1148,10,Zorita,Castellote
+47,10,Bordon,Organo de Montoro
 408,11,Gargallo,Pitarque
 124,11,Cañada,Las cuevas de cañart
 462,11,Iglesuela de cid,Nacimiento del Rio Bordon
-991,11,Portel de Morella,Puerto Cuarto Pelado
 772,11,Mirambel,Castellote
 832,12,Morella,Tronchon
 795,12,Molinos,Rio Aguaviva
-759,13,Mirambel,Mosquerela
+640,12,Las Parras,Organo de Montoro
+986,13,Pitarque,Salto del Huergo
+1060,13,Rio Pitarque,Valdelinares
+1120,13,Tronchon,Rio Aguaviva
+1013,13,Puente Fonseca,Zorita
+984,14,Pitarque,Torremocha
+759,14,Mirambel,Mosquerela
+991,17,Portel de Morella,Rio Pitarque
+1148,17,Zorita,Puerto Cuarto Pelado
 59,17,Bordon,Existe
-984,18,Pitarque,Rio Aguaviva
-343,19,Forcall,Mosquerela
-1062,21,Rio Pitarque,Zorita
-876,22,Mosquerela,Saltapin
-885,25,Mosquerela,Rio Aguaviva
-1045,25,Rio Aguaviva,Valdelinares
-1013,6,Puente Fonseca,Torremocha
+781,18,Molinos,Iglesuela de cid
+112,20,Cañada,Morella
+885,20,Mosquerela,Las Planas
+811,21,Montoro mezquita,Zorita
+876,23,Mosquerela,Saltapin
+12,25,Aguaviva,Valdelinares
+293,26,Existe,Gargallo
+502,8,La Cuba,Salto del Huergo

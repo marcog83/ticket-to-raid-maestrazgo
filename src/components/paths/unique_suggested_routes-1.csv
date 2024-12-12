@@ -1,0 +1,73 @@
+id,weight,source,target
+1,10,morron,gargallo
+2,12,mirambel,montoro mezquita
+3,7,bordon,molinos
+4,10,olocau del rey,seno
+5,9,aguaviva,la todolella
+6,9,cañada,ejulve
+7,15,las cuevas de cañart,fortanete
+8,15,seno,cañada
+9,15,aguaviva,portel de morella
+10,15,montoro mezquita,iglesuela de cid
+11,12,nacimiento del rio bordon,rio pitarque
+12,19,fortanete,seno
+13,25,valdelinares,seno
+14,16,seno,les albaredes
+15,15,existence,la todolella
+16,5,bordon,la cuba
+17,10,pitarque,cantavieja
+18,9,luco,morella
+19,6,las parras,puente fonseca
+20,12,ejulve,tronchon
+21,24,morella,mosquerela
+22,10,ladruñan,muela monchen
+23,7,tronchon,ladruñan
+24,7,muela monchen,la mata
+25,7,tronchon,torremocha
+26,8,bordon,aguaviva
+27,13,puente fonseca,morella
+28,17,bordon,valdelinares
+29,11,existence,muela monchen
+30,6,cinctorres,bordon
+31,10,forcall,iglesuela de cid
+32,23,molinos,valdelinares
+33,20,torremocha,mosquerela
+34,12,tronchon,zorita
+35,8,morron,muela monchen
+36,10,olocau del rey,zorita
+37,9,la cuba,fortanete
+38,8,fortanete,pitarque
+39,18,existence,organo de montoro
+40,11,seno,la todolella
+41,9,mirambel,las parras
+42,5,salto del huergo,morron
+43,13,cañada,molinos
+44,20,gargallo,zorita
+45,9,saltapin,nacimiento del rio bordon
+46,8,las parras,forcall
+47,10,zorita,nacimiento del rio bordon
+48,6,morron,las parras
+49,12,cinctorres,fortanete
+50,6,ejulve,puente fonseca
+51,16,rio aguaviva,villarluengo
+52,19,cañada,saltapin
+53,12,portel de morella,las parras
+54,15,montoro mezquita,cinctorres
+55,13,rio aguaviva,tronchon
+56,7,la mata,salto del huergo
+57,8,cinctorres,torremocha
+58,12,la mata,pitarque
+59,9,luco,muela monchen
+60,8,les albaredes,muela monchen
+61,17,gargallo,cinctorres
+62,16,gargallo,la cuba
+63,9,luco,portel de morella
+64,8,rio pitarque,muela monchen
+65,14,gargallo,aguaviva
+66,14,valdelinares,pitarque
+67,16,forcall,gargallo
+68,8,tronchon,salto del huergo
+69,5,luco,castellote
+70,11,castellote,tronchon
+71,7,ladruñan,la mata
+72,10,zorita,morron
