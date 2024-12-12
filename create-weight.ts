@@ -26,7 +26,7 @@ const parseResult = Papa.parse<Row>(inputCsv, {
 
 if (parseResult.errors.length > 0) {
   console.error('Error parsing CSV:', parseResult.errors);
-  // process.exit(1);
+  process.exit(1);
 }
 
 const { data } = parseResult;
