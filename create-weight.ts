@@ -61,7 +61,6 @@ const parsedWeights = Papa.parse<Connection>(weights, {
   delimiter: ',',
 });
 
-console.log(parsedWeights);
 // Create an ID-to-name map
 const idsToWeight: Record<string, string> = {};
 parsedWeights.data.forEach((connection) => {
@@ -93,6 +92,6 @@ for (const row of data) {
 const outputCsv = Papa.unparse(edges);
 
 // Write output CSV
-fs.writeFileSync('output1.csv', outputCsv);
+fs.writeFileSync('output.csv', outputCsv);
 
 console.log('Output written to output.csv');
