@@ -43,36 +43,34 @@ sourceId,targetId,sourceName,targetName,weight
 24,27,Forcall,Morella,4
 24,23,Forcall,Cinctorres,3
 24,25,Forcall,Saltapin,3
-10,13,Fortanete,Valdelinares,1
-10,8,Fortanete,Cañada,1
+10,8,Fortanete,Cañada,3
 10,9,Fortanete,Puerto Cuarto Pelado,1
-10,17,Fortanete,Mosqueruela,1
-10,49,Fortanete,Puerto de Fortanete,1
-10,50,Fortanete,Alto del Hornillo,1
-2,3,Gargallo,Ejulve,1
-2,45,Gargallo,Molinos,1
-12,11,Iglesuela de cid,Cantavieja,1
-12,14,Iglesuela de cid,Les Albaredes,1
-12,47,Iglesuela de cid,La Cuba,1
-12,15,Iglesuela de cid,Portel de Morella,1
+10,17,Fortanete,Mosqueruela,5
+10,49,Fortanete,Puerto de Fortanete,2
+10,50,Fortanete,Alto del Hornillo,3
+2,3,Gargallo,Ejulve,3
+2,45,Gargallo,Molinos,4
+12,11,Iglesuela de cid,Cantavieja,3
+12,14,Iglesuela de cid,Les Albaredes,2
+12,47,Iglesuela de cid,La Cuba,4
+12,15,Iglesuela de cid,Portel de Morella,4
 47,18,La Cuba,Mirambel,1
 47,21,La Cuba,La Mata,1
-47,14,La Cuba,Les Albaredes,1
-47,12,La Cuba,Iglesuela de cid,1
-21,28,La Mata,Olocau del Rey,1
+47,14,La Cuba,Les Albaredes,2
+47,12,La Cuba,Iglesuela de cid,4
+21,28,La Mata,Olocau del Rey,2
 21,47,La Mata,La Cuba,1
-21,23,La Mata,Cinctorres,1
+21,23,La Mata,Cinctorres,2
 21,22,La Mata,La Todolella,1
 22,21,La Todolella,La Mata,1
-22,31,La Todolella,Bordon,1
-22,34,La Todolella,Luco,1
+22,31,La Todolella,Bordon,3
+22,34,La Todolella,Luco,2
 22,24,La Todolella,Forcall,1
 41,40,Ladruñan,Puente Fonseca,1
-41,33,Ladruñan,Morron,1
-41,36,Ladruñan,Las Planas,1
-41,43,Ladruñan,Castellote,1
+41,33,Ladruñan,Morron,2
+41,43,Ladruñan,Castellote,3
 41,42,Ladruñan,Las cuevas de cañart,1
-41,4,Ladruñan,Organo de Montoro,1
+41,4,Ladruñan,Organo de Montoro,6
 42,3,Las cuevas de cañart,Ejulve,1
 42,44,Las cuevas de cañart,Seno,1
 42,41,Las cuevas de cañart,Ladruñan,1
@@ -84,7 +82,6 @@ sourceId,targetId,sourceName,targetName,weight
 48,43,Las Parras,Castellote,1
 36,39,Las Planas,Salto del Huergo,1
 36,34,Las Planas,Luco,1
-36,41,Las Planas,Ladruñan,1
 36,33,Las Planas,Morron,1
 14,12,Les Albaredes,Iglesuela de cid,1
 14,15,Les Albaredes,Portel de Morella,1
