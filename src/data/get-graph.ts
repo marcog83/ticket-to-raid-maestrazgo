@@ -1,20 +1,29 @@
 import { UndirectedGraph } from 'graphology';
+import Papa from 'papaparse';
 import routes from './routes-def.csv?raw';
 import { DataItem } from './get-data';
+// Build edges
+interface Edge {
+  sourceId: string;
+  targetId: string;
+  sourceName: string;
+  targetName: string;
+  weight: number;
+}
 
-export const routesAndWeight = routes.split('\n')
-  .slice(1)
-  .map((line) => {
-    const [ from, to, placeFrom, placeTo, weight ] = line.split(',');
-    return {
-      id: [ from, to ].sort().join('_'),
-      from: parseInt(from, 10),
-      to: parseInt(to, 10),
-      weight: parseInt(weight, 10),
-      placeFrom,
-      placeTo,
-    };
-  });
+const { data } = Papa.parse<Edge>(routes, {
+  header: true,
+  skipEmptyLines: true,
+});
+
+export const routesAndWeight = data.map((edge) => ({
+  id: [ edge.sourceId, edge.targetId ].sort().join('_'),
+  from: parseInt(edge.sourceId, 10),
+  to: parseInt(edge.targetId, 10),
+  weight: parseInt(edge.weight, 10),
+  placeFrom: edge.sourceName,
+  placeTo: edge.targetName,
+}));
 
 export const findWeight = (from:number, to:number) => {
   const idFind = [ from, to ].sort().join('_');

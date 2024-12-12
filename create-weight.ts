@@ -46,16 +46,9 @@ interface Edge {
   weight: number;
 }
 
-const weights = fs.readFileSync('output.csv', 'utf8');
+const weights = fs.readFileSync('src/data/routes-def.csv', 'utf8');
 
-interface Connection {
-  sourceId:string,
-  targetId:string,
-  sourceName:string,
-  targetName:string,
-  weight:number
-}
-const parsedWeights = Papa.parse<Connection>(weights, {
+const parsedWeights = Papa.parse<Edge>(weights, {
   header: true,
   skipEmptyLines: true,
   delimiter: ',',
