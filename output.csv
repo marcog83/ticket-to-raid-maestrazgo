@@ -103,77 +103,78 @@ sourceId,targetId,sourceName,targetName,weight
 46,3,Montoro mezquita,Ejulve,4
 46,6,Montoro mezquita,Pitarque,1
 27,24,Morella,Forcall,4
+27,25,Morella,Saltapin,1
 33,31,Morron,Bordon,1
-33,41,Morron,Ladruñan,1
+33,41,Morron,Ladruñan,2
 33,36,Morron,Las Planas,1
-17,16,Mosqueruela,Existe,1
-17,13,Mosqueruela,Valdelinares,1
-17,10,Mosqueruela,Fortanete,1
-17,51,Mosqueruela,Nacimiento de Las Truchas,1
-17,11,Mosqueruela,Cantavieja,1
-17,50,Mosqueruela,Alto del Hornillo,1
+17,16,Mosqueruela,Existe,2
+17,13,Mosqueruela,Valdelinares,5
+17,10,Mosqueruela,Fortanete,5
+17,51,Mosqueruela,Nacimiento de Las Truchas,4
+17,11,Mosqueruela,Cantavieja,6
+17,50,Mosqueruela,Alto del Hornillo,4
 19,11,Muela Monchen,Cantavieja,1
-19,9,Muela Monchen,Puerto Cuarto Pelado,1
-19,20,Muela Monchen,Tronchon,1
-19,5,Muela Monchen,Villarluengo,1
-51,17,Nacimiento de Las Truchas,Mosqueruela,1
-51,12,Nacimiento de Las Truchas,Iglesuela de cid,1
+19,9,Muela Monchen,Puerto Cuarto Pelado,2
+19,20,Muela Monchen,Tronchon,3
+19,5,Muela Monchen,Villarluengo,4
+51,17,Nacimiento de Las Truchas,Mosqueruela,4
+51,12,Nacimiento de Las Truchas,Iglesuela de cid,2
 32,31,Nacimiento del Rio Bordon,Bordon,1
-32,20,Nacimiento del Rio Bordon,Tronchon,1
-28,18,Olocau del Rey,Mirambel,1
+32,20,Nacimiento del Rio Bordon,Tronchon,2
+28,18,Olocau del Rey,Mirambel,2
 28,20,Olocau del Rey,Tronchon,1
-28,21,Olocau del Rey,La Mata,1
-28,31,Olocau del Rey,Bordon,1
-4,3,Organo de Montoro,Ejulve,1
-4,46,Organo de Montoro,Montoro mezquita,1
+28,21,Olocau del Rey,La Mata,2
+28,31,Olocau del Rey,Bordon,2
+4,3,Organo de Montoro,Ejulve,3
+4,46,Organo de Montoro,Montoro mezquita,2
 4,5,Organo de Montoro,Villarluengo,1
-4,41,Organo de Montoro,Ladruñan,1
+4,41,Organo de Montoro,Ladruñan,6
 6,7,Pitarque,Rio Pitarque,1
-6,5,Pitarque,Villarluengo,1
+6,5,Pitarque,Villarluengo,2
 6,46,Pitarque,Montoro mezquita,1
 15,14,Portel de Morella,Les Albaredes,1
-15,23,Portel de Morella,Cinctorres,1
-15,12,Portel de Morella,Iglesuela de cid,1
+15,23,Portel de Morella,Cinctorres,2
+15,12,Portel de Morella,Iglesuela de cid,4
 40,41,Puente Fonseca,Ladruñan,1
-40,5,Puente Fonseca,Villarluengo,1
-9,8,Puerto Cuarto Pelado,Cañada,1
+40,5,Puente Fonseca,Villarluengo,5
+9,8,Puerto Cuarto Pelado,Cañada,2
 9,10,Puerto Cuarto Pelado,Fortanete,1
-9,19,Puerto Cuarto Pelado,Muela Monchen,1
-9,11,Puerto Cuarto Pelado,Cantavieja,1
-49,13,Puerto de Fortanete,Valdelinares,1
-49,10,Puerto de Fortanete,Fortanete,1
-49,50,Puerto de Fortanete,Alto del Hornillo,1
-37,26,Rio Aguaviva,Zorita,1
-37,48,Rio Aguaviva,Las Parras,1
-37,38,Rio Aguaviva,Aguaviva,1
-7,46,Rio Pitarque,Montoro mezquita,1
+9,19,Puerto Cuarto Pelado,Muela Monchen,2
+9,11,Puerto Cuarto Pelado,Cantavieja,3
+49,13,Puerto de Fortanete,Valdelinares,3
+49,10,Puerto de Fortanete,Fortanete,2
+49,50,Puerto de Fortanete,Alto del Hornillo,2
+37,26,Rio Aguaviva,Zorita,3
+37,48,Rio Aguaviva,Las Parras,3
+37,38,Rio Aguaviva,Aguaviva,2
+7,46,Rio Pitarque,Montoro mezquita,3
 7,6,Rio Pitarque,Pitarque,1
-7,8,Rio Pitarque,Cañada,1
-25,24,Saltapin,Forcall,1
+7,8,Rio Pitarque,Cañada,2
+25,24,Saltapin,Forcall,3
 25,27,Saltapin,Morella,1
-25,23,Saltapin,Cinctorres,1
+25,23,Saltapin,Cinctorres,3
 39,36,Salto del Huergo,Las Planas,1
-39,43,Salto del Huergo,Castellote,1
-39,48,Salto del Huergo,Las Parras,1
+39,43,Salto del Huergo,Castellote,3
+39,48,Salto del Huergo,Las Parras,2
 44,43,Seno,Castellote,1
-44,42,Seno,Las cuevas de cañart,1
-44,45,Seno,Molinos,1
+44,42,Seno,Las cuevas de cañart,4
+44,45,Seno,Molinos,3
 35,34,Torremocha,Luco,1
-35,48,Torremocha,Las Parras,1
-20,19,Tronchon,Muela Monchen,1
-20,5,Tronchon,Villarluengo,1
-20,18,Tronchon,Mirambel,1
+35,48,Torremocha,Las Parras,2
+20,19,Tronchon,Muela Monchen,3
+20,5,Tronchon,Villarluengo,4
+20,18,Tronchon,Mirambel,3
 20,28,Tronchon,Olocau del Rey,1
-20,32,Tronchon,Nacimiento del Rio Bordon,1
-13,16,Valdelinares,Existe,1
-13,17,Valdelinares,Mosqueruela,1
-13,49,Valdelinares,Puerto de Fortanete,1
+20,32,Tronchon,Nacimiento del Rio Bordon,2
+13,16,Valdelinares,Existe,5
+13,17,Valdelinares,Mosqueruela,5
+13,49,Valdelinares,Puerto de Fortanete,3
 13,50,Valdelinares,Alto del Hornillo,1
 5,4,Villarluengo,Organo de Montoro,1
-5,6,Villarluengo,Pitarque,1
-5,8,Villarluengo,Cañada,1
-5,40,Villarluengo,Puente Fonseca,1
-5,20,Villarluengo,Tronchon,1
-5,19,Villarluengo,Muela Monchen,1
-26,37,Zorita,Rio Aguaviva,1
-26,24,Zorita,Forcall,1
+5,6,Villarluengo,Pitarque,2
+5,8,Villarluengo,Cañada,2
+5,40,Villarluengo,Puente Fonseca,5
+5,20,Villarluengo,Tronchon,4
+5,19,Villarluengo,Muela Monchen,4
+26,37,Zorita,Rio Aguaviva,3
+26,24,Zorita,Forcall,3
