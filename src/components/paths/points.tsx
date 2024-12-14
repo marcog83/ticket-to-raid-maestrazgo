@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import Papa from 'papaparse';
 import { GraphProvider, useGraph } from '../../context/graph';
 import { findShortestPaths } from '../../data/find-shortest-paths';
 import styles from './points.module.css';
@@ -76,10 +77,15 @@ export const Points = () => {
 
     const _groups = Object.groupBy(toCopy, (name) => name);
 
+    const initialData = Data.reduce((acc, item) => {
+      acc[item.name] = 0;
+      return acc;
+    }, {});
+
     const groups = Object.entries(_groups).reduce((acc, [ key, values ]) => {
       acc[key] = values.length;
       return acc;
-    }, {});
+    }, initialData);
 
     return groups;
   };
@@ -91,7 +97,7 @@ export const Points = () => {
     const ids = names.map((name) => Data.find((place) => place.name === name)!.id);
     return new Set(ids);
   };
-  const [ width, setPanelWidth ] = useState(400);
+  const [ width, setPanelWidth ] = useState('100%');
   const togglePanel = () => {
     setPanelWidth(width === 400 ? '100%' : 400);
   };
