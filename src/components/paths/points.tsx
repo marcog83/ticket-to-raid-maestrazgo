@@ -56,10 +56,13 @@ export const Points = () => {
   const handleSave = () => {
     const results = shortestPaths.filter(([ ,id ]) => uniqueItemsSet.has(Number(id)));
 
-    const toCopy = results.map(([ weight, id, first, ...path ]) => [ id, weight, first, path.at(-1) ].join(','))
-      .join('\n');
+    const toCopy = results.map(([ weight, id, first, ...path ]) => [ id, weight, first, path.at(-1) ]);
+    const csv = Papa.unparse({
+      fields: [ 'id', 'weight', 'sourceName', 'destName' ],
+      data: toCopy,
+    });
     // Copy the text inside the text field
-    navigator.clipboard.writeText(toCopy);
+    navigator.clipboard.writeText(csv);
 
     // Alert the copied text
     // eslint-disable-next-line no-alert
@@ -115,8 +118,8 @@ export const Points = () => {
             if (uniqueItemsSet.has(Number(id))) return true;
             if (!query) return true;
             if (!Number.isNaN(parseInt(query, 10))) return Number(weight) === parseInt(query, 10);
-            return String(first).toLowerCase().startsWith(query)
-             || String(path.at(-1)).toLowerCase().startsWith(query);
+            return String(first).toLowerCase().startsWith(query.toLowerCase())
+             || String(path.at(-1)).toLowerCase().startsWith(query.toLowerCase());
           })
           .map(([ weight, id, ...path ]) => (
             <div
