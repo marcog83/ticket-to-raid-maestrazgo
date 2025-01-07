@@ -88,13 +88,11 @@ sourceId,targetId,sourceName,targetName,weight
 40,55,Puente Fonseca,Los Baños,1
 41,43,Ladruñan,Castellote,3
 41,42,Ladruñan,Las cuevas de cañart,1
-42,03,Las cuevas de cañart,Ejulve,4
 42,44,Las cuevas de cañart,Seno,3
 42,45,Las cuevas de cañart,Molinos,2
 43,44,Castellote,Seno,1
 43,48,Castellote,Las Parras,2
 44,45,Seno,Molinos,3
-45,02,Molinos,Gargallo,4
 49,50,Puerto de Fortanete,Alto del Hornillo,2
 49,56,Puerto de Fortanete,Allepuz,3
 51,12,Nacimiento de Las Truchas,Iglesuela de cid,2
