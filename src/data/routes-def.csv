@@ -17,6 +17,7 @@ sourceId,targetId,sourceName,targetName,weight
 06,46,Pitarque,Montoro mezquita,1
 07,46,Rio Pitarque,Montoro mezquita,3
 07,08,Rio Pitarque,Cañada,2
+07,53,Rio Pitarque,Miravete,3
 08,10,Cañada,Fortanete,3
 08,09,Cañada,Puerto Cuarto Pelado,2
 09,10,Puerto Cuarto Pelado,Fortanete,1
@@ -33,6 +34,7 @@ sourceId,targetId,sourceName,targetName,weight
 12,14,Iglesuela de cid,Les Albaredes,2
 12,47,Iglesuela de cid,La Cuba,4
 12,15,Iglesuela de cid,Portel de Morella,4
+12,51,Iglesuela de cid,Nacimiento de Las Truchas,2
 13,16,Valdelinares,Linares de Mora,4
 13,17,Valdelinares,Mosqueruela,5
 13,49,Valdelinares,Puerto de Fortanete,3
@@ -95,10 +97,8 @@ sourceId,targetId,sourceName,targetName,weight
 44,45,Seno,Molinos,3
 49,50,Puerto de Fortanete,Alto del Hornillo,2
 49,56,Puerto de Fortanete,Allepuz,3
-51,12,Nacimiento de Las Truchas,Iglesuela de cid,2
+49,52,Puerto de Fortanete,Villarroya de los Pinares,3
+49,54,Puerto de Fortanete,Ermita del Carmen,3
 52,56,Villarroya de los Pinares,Allepuz,2
 52,53,Villarroya de los Pinares,Miravete,2
-52,49,Villarroya de los Pinares,Puerto de Fortanete,3
 53,56,Miravete,Allepuz,2
-53,07,Miravete,Rio Pitarque,2
-54,49,Ermita del Carmen,Puerto de Fortanete,3
