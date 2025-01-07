@@ -46,7 +46,7 @@ interface Edge {
   weight: number;
 }
 
-const weights = fs.readFileSync('output.csv', 'utf8');
+const weights = fs.readFileSync('src/data/routes-def.csv', 'utf8');
 
 const parsedWeights = Papa.parse<Edge>(weights, {
   header: true,
@@ -57,9 +57,12 @@ const parsedWeights = Papa.parse<Edge>(weights, {
 // Create an ID-to-name map
 const idsToWeight: Record<string, string> = {};
 parsedWeights.data.forEach((connection) => {
-  idsToWeight[`${ connection.sourceId }-${ connection.targetId }`] = connection.weight;
+  const [ min, max ] = [ connection.sourceId, connection.targetId ].sort();
+  idsToWeight[`${ min }-${ max }`] = connection.weight;
 });
 const edges: Edge[] = [];
+
+const uniqueRoutes = new Set<string>();
 
 for (const row of data) {
   const sourceId = row.id;
@@ -69,6 +72,13 @@ for (const row of data) {
   for (const col of [ 'c1', 'c2', 'c3', 'c4', 'c5', 'c6' ]) {
     const targetId = row[col];
     if (targetId && targetId.trim() !== '') {
+      const [ min, max ] = [ sourceId, targetId ].sort();
+      const key = `${ min }-${ max }`;
+      if (uniqueRoutes.has(key)) {
+        continue;
+      }
+      uniqueRoutes.add(key);
+
       const targetName = idToName[targetId] || '';
       edges.push({
         sourceId,
