@@ -24,9 +24,9 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
         const weight: number = graph.getEdgeAttribute(edge, 'weight');
         return acc + weight;
       }, 0);
-
       // Create a canonical form of the path (sorted)
-      const canonicalPath = nodePath.slice().sort().join('-');
+      const tmp = [ nodePath.at(0), nodePath.at(-1) ].sort().join('-');
+      const canonicalPath = tmp;
       if (uniquePathsSet.has(canonicalPath)) {
         return acc; // Skip this path as it's a duplicate
       }
@@ -51,7 +51,8 @@ export const findShortestPaths = (graph: UndirectedGraph) => {
     const paths = results[node];
     const line = paths.map((path) => [ path.weight, path.id, ...path.path.map(getName) ]);
     return line;
-  }).flat().sort((a, b) => Number(a[0]) - Number(b[0]));
+  }).flat().sort((a, b) => Number(a[0]) - Number(b[0]))
+    .filter((a) => Number(a[0]) > 4);
 
   return shortest;
 };

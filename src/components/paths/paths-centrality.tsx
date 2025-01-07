@@ -66,7 +66,7 @@ export const PathsCentrality = ({ paths }) => {
     };
   }).toSorted((a, b) => b.pathCentrality - a.pathCentrality);
   return results.map(({ path, pathCentrality }) => (
-    <div>
+    <div key={path.join(' - ')}>
       <strong>{pathCentrality.toFixed(2)}</strong>
       <span>{path.join(' - ')}</span>
     </div>

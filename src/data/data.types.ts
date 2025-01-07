@@ -1,5 +1,5 @@
 export type Place = {
-  id:number;
+  id:string;
   name:string;
   latitude:number;
   longitude:number;
@@ -7,7 +7,7 @@ export type Place = {
 
 export type IConnection = {
   id:number;
-  from: number,
-  to: number,
+  from: string,
+  to: string,
   weight:number,
 };

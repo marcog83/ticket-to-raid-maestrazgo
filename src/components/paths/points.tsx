@@ -97,7 +97,7 @@ export const Points = () => {
     const ids = names.map((name) => Data.find((place) => place.name === name)!.id);
     return new Set(ids);
   };
-  const [ width, setPanelWidth ] = useState('100%');
+  const [ width, setPanelWidth ] = useState(400);
   const togglePanel = () => {
     setPanelWidth(width === 400 ? '100%' : 400);
   };

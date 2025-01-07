@@ -1,7 +1,7 @@
 import eigenvectorCentrality from 'graphology-metrics/centrality/eigenvector';
 import { useGraph } from '../../context/graph';
 import { StatContent } from './stat-content';
-import { Data } from '../../data/get-data';
+import { getName } from '../../context/get-name';
 
 export const EigenvectorCentrality = () => {
   const graph = useGraph();
@@ -10,7 +10,7 @@ export const EigenvectorCentrality = () => {
   try {
     centrality = graph.order ? eigenvectorCentrality(graph) : {};
     results = Object.entries(centrality).map(([ id, value ]) => ({
-      name: Data.find((item) => item.id === Number(id))!.name,
+      name: getName(id),
       value: Number((Number(value) * 100).toFixed(2)),
     })).sort((a, b) => b.value - a.value);
   } catch (e) {

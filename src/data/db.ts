@@ -20,8 +20,8 @@ const getDatabase = () => {
     name: Connections,
     columns: {
       id: { primaryKey: true, autoIncrement: true },
-      from: { notNull: true, dataType: DATA_TYPE.Number },
-      to: { notNull: true, dataType: DATA_TYPE.Number },
+      from: { notNull: true, dataType: DATA_TYPE.String },
+      to: { notNull: true, dataType: DATA_TYPE.String },
       weight: { notNull: true, dataType: DATA_TYPE.Number },
     },
   };

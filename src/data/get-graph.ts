@@ -18,8 +18,8 @@ const { data } = Papa.parse<Edge>(routes, {
 
 export const routesAndWeight = data.map((edge) => ({
   id: [ edge.sourceId, edge.targetId ].sort().join('_'),
-  from: parseInt(edge.sourceId, 10),
-  to: parseInt(edge.targetId, 10),
+  from: edge.sourceId,
+  to: edge.targetId,
   weight: parseInt(edge.weight, 10),
   placeFrom: edge.sourceName,
   placeTo: edge.targetName,
