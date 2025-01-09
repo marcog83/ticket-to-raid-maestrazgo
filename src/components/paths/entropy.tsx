@@ -1,10 +1,11 @@
+/* eslint-disable no-plusplus */
 import { useGraph } from '../../context/graph';
 import { StatContent } from './stat-content';
 import points from './points.module.css';
 import styles from './stats.module.css';
 import { Figures } from './figures';
 
-export const Entropy = ({ selectedIds, groups }) => {
+export const Entropy = ({ selectedIds, groups }:{ selectedIds:Set<string>, groups:any }) => {
   const graph = useGraph();
   // Step 1: Count frequencies of start/end points
   const nodeFrequencies = {};
@@ -13,10 +14,10 @@ export const Entropy = ({ selectedIds, groups }) => {
   });
 
   graph.forEachEdge((edge, attributes, source, target) => {
-    if (selectedIds.has(Number(source))) {
+    if (selectedIds.has(source)) {
       nodeFrequencies[source]++;
     }
-    if (selectedIds.has(Number(target))) {
+    if (selectedIds.has(target)) {
       nodeFrequencies[target]++;
     }
   });
@@ -48,7 +49,7 @@ export const Entropy = ({ selectedIds, groups }) => {
 
         </li>
         <li>
-          <div>
+          <div style={{ minHeight: 580 }}>
             <Figures selectedIds={selectedIds} groups={groups} />
           </div>
         </li>

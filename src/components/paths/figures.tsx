@@ -8,7 +8,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { Data } from '../../data/get-data';
 import { useGraph } from '../../context/graph';
 
 ChartJS.register(
@@ -33,8 +32,7 @@ const options = {
   },
 };
 
-export const Figures = ({ selectedIds, groups }:{ selectedIds:Set<number> }) => {
-  const graph = useGraph();
+export const Figures = ({ groups }:{ groups:any }) => {
   const values = [];
   const labels = [ ];
 
@@ -46,7 +44,7 @@ export const Figures = ({ selectedIds, groups }:{ selectedIds:Set<number> }) => 
     labels,
     datasets: [
       {
-        data: values,
+        data: values.map((v) => Math.max(0.5, v)),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
