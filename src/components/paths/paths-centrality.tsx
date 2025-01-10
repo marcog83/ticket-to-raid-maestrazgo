@@ -5,7 +5,7 @@ import { useGraph } from '../../context/graph';
 import { Data } from '../../data/get-data';
 
 export const PathsCentrality = ({ paths }) => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const nodeBetweenness = graph.order ? betweennessCentrality(graph, { normalized: true }) : {};
   const edgeBetweenness = graph.order ? edgeBetweennessCentrality(graph, { normalized: true }) : {};
 

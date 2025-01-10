@@ -6,7 +6,7 @@ import { connection } from '../data/db';
 import { Places } from '../data/tables.constants';
 import { fetchPlacesWithConnections } from '../data/fetch-places-with-connections';
 
-const GraphContext = createContext({} as UndirectedGraph);
+const GraphContext = createContext<{ graph:UndirectedGraph, convertToPixels:any }>({});
 
 export const useGraph = () => useContext(GraphContext);
 

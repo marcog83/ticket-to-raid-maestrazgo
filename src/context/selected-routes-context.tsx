@@ -6,7 +6,7 @@ const SelectedContext = createContext();
 const useSelectedPaths = () => useContext(SelectedContext);
 
 export const SelectedPathsProvider = ({ children }) => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
   const initialRoutes = getSavedRoutes(shortestPaths);
   const [ selectedPathsIds, setSelected ] = useState<number[]>(initialRoutes);

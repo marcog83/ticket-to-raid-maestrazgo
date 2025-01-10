@@ -4,7 +4,7 @@ import { StatContent } from './stat-content';
 import { getName } from '../../context/get-name';
 
 export const EigenvectorCentrality = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   let centrality = {};
   let results = [];
   try {

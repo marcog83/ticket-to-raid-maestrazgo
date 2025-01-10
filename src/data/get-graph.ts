@@ -2,6 +2,7 @@ import { UndirectedGraph } from 'graphology';
 import Papa from 'papaparse';
 import routes from './routes-def.csv?raw';
 import { DataItem } from './get-data';
+import { parseXMLToBorders } from '../components/paths/cards/perimeter';
 // Build edges
 interface Edge {
   sourceId: string;
@@ -30,17 +31,20 @@ export const findWeight = (from:number, to:number) => {
   return routesAndWeight.find(({ id }) => id === idFind)?.weight;
 };
 
+const borders = parseXMLToBorders();
+
 export const getGraph = (data:DataItem[]) => {
   // Convert coordinates to pixels
   const mapWidth = 2024;
   const mapHeight = 2024;
+  const bounds = data.concat(borders.flat());
   const [ minLongitude, maxLongitude ] = [
-    Math.min(...data.map((city) => parseFloat(city.longitude))),
-    Math.max(...data.map((city) => parseFloat(city.longitude))),
+    Math.min(...bounds.map((city) => parseFloat(city.longitude))),
+    Math.max(...bounds.map((city) => parseFloat(city.longitude))),
   ];
   const [ minLatitude, maxLatitude ] = [
-    Math.min(...data.map((city) => parseFloat(city.latitude))),
-    Math.max(...data.map((city) => parseFloat(city.latitude))),
+    Math.min(...bounds.map((city) => parseFloat(city.latitude))),
+    Math.max(...bounds.map((city) => parseFloat(city.latitude))),
   ];
 
   const convertToPixels = (longitude: number, latitude: number): [number, number] => {
@@ -85,5 +89,5 @@ export const getGraph = (data:DataItem[]) => {
       }
     });
   });
-  return graph;
+  return { graph, convertToPixels };
 };

@@ -10,9 +10,10 @@ import { Cards } from './cards/cards';
 import { getSavedRoutes } from './get-saved';
 import { Entropy } from './entropy';
 import { PathsCentrality } from './paths-centrality';
+import { GraphVisualization } from '../map/graph-visualization';
 
 export const Points = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const [ shortestPaths ] = useState(() => findShortestPaths(graph));
   const initialRoutes = getSavedRoutes(shortestPaths);
   const [ selectedPaths, setSelected ] = useState<number[]>(initialRoutes);
@@ -97,7 +98,7 @@ export const Points = () => {
     const ids = names.map((name) => Data.find((place) => place.name === name)!.id);
     return new Set(ids);
   };
-  const [ width, setPanelWidth ] = useState('100%');
+  const [ width, setPanelWidth ] = useState(400);
   const togglePanel = () => {
     setPanelWidth(width === 400 ? '100%' : 400);
   };
@@ -168,7 +169,7 @@ export const Points = () => {
 
         <div className={styles.mapContainer}>
 
-          <Map />
+          <GraphVisualization />
 
         </div>
         <div style={{ width, overflow: 'auto' }}>

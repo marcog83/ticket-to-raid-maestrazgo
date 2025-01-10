@@ -4,7 +4,7 @@ import { Route } from './route';
 import styles from './routes-panel.module.css';
 
 export const RoutesPanel = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const routes = getPredefinedRoutes(graph);
   return (
     <div className={styles.panel}>

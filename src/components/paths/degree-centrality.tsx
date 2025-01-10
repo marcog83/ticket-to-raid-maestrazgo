@@ -6,7 +6,7 @@ import { useGraph } from '../../context/graph';
 import { StatContent } from './stat-content';
 
 export const DegreeCentrality = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const centrality = graph.mapNodes((node, attributes) => ({
     name: attributes.name,
     value: weightedUndirectedDegree(graph, node),

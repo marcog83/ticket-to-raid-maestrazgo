@@ -4,7 +4,7 @@ import { StatContent } from './stat-content';
 import { getName } from '../../context/get-name';
 
 export const BetweennessCentrality = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const betweenness = graph.order ? betweennessCentrality(graph) : {};
   const results = Object.entries(betweenness).map(([ id, value ]) => ({
     name: getName(id),

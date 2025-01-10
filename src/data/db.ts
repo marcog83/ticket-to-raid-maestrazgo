@@ -34,7 +34,7 @@ const getDatabase = () => {
 };
 export const connection = new Connection(new JsstoreWorker());
 
-connection.logStatus = true;
+// connection.logStatus = true;
 export const initJsStore = async (cb) => {
   try {
     const dataBase = getDatabase();

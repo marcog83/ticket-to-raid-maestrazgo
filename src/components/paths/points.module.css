@@ -92,4 +92,6 @@ margin-right:1rem;
     position: relative;
     flex: 1;
     height: calc(100vh - 34px);
+    max-width: 80%;
+    overflow: auto;
 }

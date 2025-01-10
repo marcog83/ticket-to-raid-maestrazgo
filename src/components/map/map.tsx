@@ -8,7 +8,7 @@ import { useGraph } from '../../context/graph';
 import { addMaestrazgo } from '../paths/cards/perimeter';
 
 export const Map = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const refMap = useRef<LeafletMap>();
   // eslint-disable-next-line no-console
   console.log(refMap.current?.getBounds());

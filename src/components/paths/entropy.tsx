@@ -6,7 +6,7 @@ import styles from './stats.module.css';
 import { Figures } from './figures';
 
 export const Entropy = ({ selectedIds, groups }:{ selectedIds:Set<string>, groups:any }) => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   // Step 1: Count frequencies of start/end points
   const nodeFrequencies = {};
   graph.forEachNode((node) => {

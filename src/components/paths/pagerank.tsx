@@ -4,7 +4,7 @@ import { StatContent } from './stat-content';
 import { getName } from '../../context/get-name';
 
 export const Pagerank = () => {
-  const graph = useGraph();
+  const { graph } = useGraph();
   const scores = graph.order ? pagerank(graph) : {};
   const results = Object.entries(scores).map(([ id, value ]) => ({
     name: getName(id),
