@@ -31,16 +31,37 @@ export const findWeight = (from:number, to:number) => {
 };
 
 export const getGraph = (data:DataItem[]) => {
+  // Convert coordinates to pixels
+  const mapWidth = 2024;
+  const mapHeight = 2024;
+  const [ minLongitude, maxLongitude ] = [
+    Math.min(...data.map((city) => parseFloat(city.longitude))),
+    Math.max(...data.map((city) => parseFloat(city.longitude))),
+  ];
+  const [ minLatitude, maxLatitude ] = [
+    Math.min(...data.map((city) => parseFloat(city.latitude))),
+    Math.max(...data.map((city) => parseFloat(city.latitude))),
+  ];
+
+  const convertToPixels = (longitude: number, latitude: number): [number, number] => {
+    const x = ((longitude - minLongitude) / (maxLongitude - minLongitude)) * mapWidth;
+    const y = mapHeight - ((latitude - minLatitude) / (maxLatitude - minLatitude)) * mapHeight;
+    return [ x, y ];
+  };
+
   const graph = new UndirectedGraph();
 
   data.forEach(({ id, name, latitude, longitude }) => {
     // Add node
     if (!graph.hasNode(id)) {
+      const [ x, y ] = convertToPixels(parseFloat(longitude), parseFloat(latitude));
       graph.addNode(id, {
         latitude,
         longitude,
         name,
-        label: `${ id }:: ${ name }`,
+        label: name,
+        x,
+        y,
       });
     }
   });

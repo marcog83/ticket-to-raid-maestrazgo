@@ -10,7 +10,7 @@ export const StatContent:FC<{
   title,
   tooltip,
   results }) => (
-    <details open className={points.details}>
+    <details className={points.details}>
       <summary className={`${ styles.summary } ${ points.summary }`}>
         <Tooltip tooltip={tooltip}>
           <h2>{title}</h2>

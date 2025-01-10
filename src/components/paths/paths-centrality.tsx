@@ -33,8 +33,8 @@ export const PathsCentrality = ({ paths }) => {
 
     criticalRoutes.push({
       edge,
-      source: Data.find((place) => place.id === Number(source))?.name,
-      target: Data.find((place) => place.id === Number(target))?.name,
+      source: Data.find((place) => place.id === (source))?.name,
+      target: Data.find((place) => place.id === (target))?.name,
       weight,
       betweenness: edgeBetweenness[edge],
       weightedDegree: weightedDegree[source] + weightedDegree[target],

@@ -1,0 +1,5 @@
+.graph{
+    width: 100vw;
+    height: calc(100vh - 34px);
+    overflow: auto;
+}
