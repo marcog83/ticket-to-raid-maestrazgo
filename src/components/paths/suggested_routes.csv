@@ -25,6 +25,8 @@ id,weight,sourceName,destName
 32,8,Gargallo,Castellote
 198,8,Villarluengo,Allepuz
 306,8,Cañada,Mirambel
+280,8,Rio Pitarque,Ladruñan
+103,8,Ejulve,Puerto Cuarto Pelado
 515,9,Iglesuela de cid,Ermita del Carmen
 106,9,Organo de Montoro,Iglesuela de cid
 775,10,Muela Monchen,Las Parras
@@ -43,5 +45,3 @@ id,weight,sourceName,destName
 1219,19,Aguaviva,Alto del Hornillo
 662,20,Linares de Mora,Castellote
 1207,21,Rio Aguaviva,Allepuz
-280,8,Rio Pitarque,Ladruñan
-103,8,Ejulve,Puerto Cuarto Pelado

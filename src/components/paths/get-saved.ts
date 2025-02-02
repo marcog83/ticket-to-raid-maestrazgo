@@ -1,6 +1,7 @@
 // import routes from './saved-routes.csv?raw';
 import Papa from 'papaparse';
-import routes from './suggested_routes.csv?raw';
+import routes from './routes-1.csv?raw';
+// import routes from './suggested_routes.csv?raw';
 // 650,4,La Todolella,Morron
 type Route = {
   id:number,
